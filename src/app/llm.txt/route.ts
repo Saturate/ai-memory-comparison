@@ -23,6 +23,7 @@ Each memory system is a JSON file in the \`data/\` directory — easy to add, ea
 
 - **Add a system:** Create a new JSON file in \`data/developer-tools/\` or \`data/user-memory/\` and open a PR. The schema validates automatically.
 - **Update the data:** Edit the relevant JSON file and submit a PR. Include a source link for any claims.
+- **AI Contributing Guide:** [contribute.md](${SITE_URL}/contribute.md) — instructions for AI assistants to research and submit tools
 - **Repo:** https://github.com/Saturate/ai-memory-comparison
 `;
 
