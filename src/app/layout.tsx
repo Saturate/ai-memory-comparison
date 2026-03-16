@@ -7,6 +7,11 @@ export const metadata: Metadata = {
   title: "AI Memory Comparison",
   description:
     "Compare AI memory systems for developer tools and user-facing agents. Interactive tables with filtering, sorting, and side-by-side comparison.",
+  alternates: {
+    types: {
+      "text/markdown": "/llm.txt",
+    },
+  },
 };
 
 export default function RootLayout({
