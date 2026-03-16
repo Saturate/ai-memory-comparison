@@ -37,34 +37,12 @@ The build will validate your JSON against the Zod schema automatically.
 
 Edit the relevant JSON file and submit a PR. Include a source link for any claims.
 
-### Schema overview
+### Schemas
 
-**Developer tools** (`data/developer-tools/*.json`):
+Both categories have their own Zod schema — see [`src/lib/types.ts`](src/lib/types.ts) for the full definitions:
 
-| Field | Type | Description |
-|---|---|---|
-| `slug` | string | URL-safe identifier |
-| `name` | string | Display name |
-| `description` | string | One paragraph |
-| `url` | string | Homepage or repo URL |
-| `category` | `"developer-tools"` | Always this value |
-| `language` | string[] | Implementation language(s) |
-| `approach` | string[] | Memory architecture |
-| `search` | string[] | Retrieval methods |
-| `storage` | string[] | Backing store(s) |
-| `mcpSupport` | `"yes"` \| `"no"` \| `"partial"` | MCP integration |
-| `scopes` | string[] | Memory organization |
-| `duplicateDetection` | string[] | Dedup strategy |
-| `retention` | string[] | TTL / expiry approach |
-| `multiUser` | `"yes"` \| `"no"` \| `"partial"` | Multi-user support |
-| `crossMachine` | `"yes"` \| `"no"` \| `"partial"` | Cross-machine access |
-| `webUi` | `"yes"` \| `"no"` \| `"partial"` | Browser UI |
-| `tokenBudgeting` | string[] | Context budget control |
-| `toolSupport` | string[] | Compatible tools |
-
-Most fields have an optional `*Detail` companion (e.g. `mcpDetail`) for tooltip text.
-
-**User memory platforms** (`data/user-memory/*.json`) use a different schema focused on hosting, pricing, SDKs, temporal awareness, and multi-tenancy. See `src/lib/types.ts` for the full definition.
+- [`DevToolSchema`](src/lib/types.ts) — developer tools (MCP, search, storage, dedup, retention, etc.)
+- [`UserMemorySchema`](src/lib/types.ts) — user memory platforms (hosting, pricing, SDKs, temporal awareness, etc.)
 
 ## Development
 
@@ -74,15 +52,6 @@ pnpm dev
 ```
 
 Open [http://localhost:3000](http://localhost:3000).
-
-## Stack
-
-- [Next.js 16](https://nextjs.org/) with App Router
-- [TanStack Table v8](https://tanstack.com/table) — sorting, filtering, column visibility
-- [Tailwind CSS v4](https://tailwindcss.com/)
-- [Zod](https://zod.dev/) — runtime JSON validation
-- [next-themes](https://github.com/pacocoursey/next-themes) — dark/light mode
-- TypeScript (strict)
 
 ## License
 
