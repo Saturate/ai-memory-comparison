@@ -53,7 +53,7 @@ export function Nav() {
         </div>
         <div className="flex items-center gap-2">
           <a
-            href="https://github.com"
+            href="https://github.com/Saturate/ai-memory-comparison"
             target="_blank"
             rel="noopener noreferrer"
             className="hidden sm:inline-flex h-8 items-center rounded-md border border-border px-2.5 text-[12px] font-mono text-muted-foreground hover:text-foreground hover:bg-muted transition-colors"
