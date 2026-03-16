@@ -1,4 +1,4 @@
-import { Suspense } from "react";
+import { connection } from "next/server";
 import { getUserMemory } from "@/lib/data";
 import { UserMemoryTableClient } from "./client";
 
@@ -8,7 +8,8 @@ export const metadata = {
     "Compare agent and chatbot memory platforms. Mem0, Zep, Letta, Cognee — pricing, SDKs, temporal awareness, and more.",
 };
 
-export default function UserMemoryPage() {
+export default async function UserMemoryPage() {
+  await connection();
   const data = getUserMemory();
 
   return (
@@ -22,9 +23,7 @@ export default function UserMemoryPage() {
           row for details.
         </p>
       </div>
-      <Suspense>
-        <UserMemoryTableClient data={data} />
-      </Suspense>
+      <UserMemoryTableClient data={data} />
     </div>
   );
 }

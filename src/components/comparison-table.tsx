@@ -3,16 +3,19 @@
 import { flexRender, type Table as TanStackTable } from "@tanstack/react-table";
 import type { MemorySystem } from "@/lib/types";
 import { cn } from "@/lib/utils";
+import { ColumnFilter } from "./column-filter";
 
-interface ComparisonTableProps<T extends MemorySystem> {
-  table: TanStackTable<T>;
-  onSelectSystem: (system: T) => void;
+interface ComparisonTableProps {
+  table: TanStackTable<MemorySystem>;
+  onSelectSystem: (system: MemorySystem) => void;
+  allData: MemorySystem[];
 }
 
-export function ComparisonTable<T extends MemorySystem>({
+export function ComparisonTable({
   table,
   onSelectSystem,
-}: ComparisonTableProps<T>) {
+  allData,
+}: ComparisonTableProps) {
   return (
     <div className="comparison-table-wrapper rounded-lg border border-border bg-card">
       <table className="w-full text-sm">
@@ -45,6 +48,9 @@ export function ComparisonTable<T extends MemorySystem>({
                       asc: " \u2191",
                       desc: " \u2193",
                     }[header.column.getIsSorted() as string] ?? null}
+                    {header.column.getCanFilter() && (
+                      <ColumnFilter column={header.column} allData={allData} />
+                    )}
                   </div>
                 </th>
               ))}

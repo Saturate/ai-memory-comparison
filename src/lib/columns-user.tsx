@@ -1,6 +1,7 @@
 import { createColumnHelper } from "@tanstack/react-table";
 import { Badge } from "@/components/badge";
 import { ChipList } from "@/components/chip-list";
+import { arrayFilterFn, scalarFilterFn } from "./filter-fns";
 import type { UserMemory } from "./types";
 
 const col = createColumnHelper<UserMemory>();
@@ -24,6 +25,7 @@ export const userMemoryColumns = [
       );
     },
     enableHiding: false,
+    enableColumnFilter: false,
   }),
   col.accessor("approach", {
     header: "Approach",
@@ -33,6 +35,7 @@ export const userMemoryColumns = [
         detail={info.row.original.approachDetail}
       />
     ),
+    filterFn: arrayFilterFn,
   }),
   col.accessor("hosting", {
     header: "Hosting",
@@ -42,18 +45,21 @@ export const userMemoryColumns = [
         detail={info.row.original.hostingDetail}
       />
     ),
+    filterFn: arrayFilterFn,
   }),
   col.accessor("pricing", {
     header: "Pricing",
     cell: (info) => (
       <Badge value={info.getValue()} detail={info.row.original.pricingDetail} />
     ),
+    filterFn: scalarFilterFn,
   }),
   col.accessor("sdks", {
     header: "SDKs",
     cell: (info) => (
       <ChipList items={info.getValue()} detail={info.row.original.sdksDetail} />
     ),
+    filterFn: arrayFilterFn,
   }),
   col.accessor("scopes", {
     header: "Scopes",
@@ -63,6 +69,7 @@ export const userMemoryColumns = [
         detail={info.row.original.scopesDetail}
       />
     ),
+    filterFn: arrayFilterFn,
   }),
   col.accessor("temporalAwareness", {
     header: "Temporal",
@@ -72,6 +79,7 @@ export const userMemoryColumns = [
         detail={info.row.original.temporalDetail}
       />
     ),
+    filterFn: scalarFilterFn,
     sortingFn: (a, b) => {
       const order = { yes: 0, partial: 1, no: 2 };
       return (
@@ -88,6 +96,7 @@ export const userMemoryColumns = [
         detail={info.row.original.selfImprovingDetail}
       />
     ),
+    filterFn: scalarFilterFn,
     sortingFn: (a, b) => {
       const order = { yes: 0, partial: 1, no: 2 };
       return order[a.original.selfImproving] - order[b.original.selfImproving];
@@ -101,6 +110,7 @@ export const userMemoryColumns = [
         detail={info.row.original.multiTenantDetail}
       />
     ),
+    filterFn: scalarFilterFn,
     sortingFn: (a, b) => {
       const order = { yes: 0, partial: 1, no: 2 };
       return order[a.original.multiTenant] - order[b.original.multiTenant];
@@ -114,6 +124,7 @@ export const userMemoryColumns = [
         detail={info.row.original.searchDetail}
       />
     ),
+    filterFn: arrayFilterFn,
   }),
   col.accessor("storage", {
     header: "Storage",
@@ -123,6 +134,7 @@ export const userMemoryColumns = [
         detail={info.row.original.storageDetail}
       />
     ),
+    filterFn: arrayFilterFn,
   }),
   col.accessor("funding", {
     header: "Funding",
@@ -134,5 +146,6 @@ export const userMemoryColumns = [
         <span className="text-muted-foreground text-[11px] font-mono">--</span>
       );
     },
+    enableColumnFilter: false,
   }),
 ];

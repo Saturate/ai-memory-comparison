@@ -16,6 +16,10 @@ interface TableToolbarProps<T extends MemorySystem> {
   selectedForCompare: Set<string>;
   onToggleCompare: (slug: string) => void;
   category: string;
+  colorsEnabled: boolean;
+  onToggleColors: () => void;
+  activeFilterCount: number;
+  onClearFilters: () => void;
 }
 
 function ToolbarButton({
@@ -54,6 +58,10 @@ export function TableToolbar<T extends MemorySystem>({
   selectedForCompare,
   onToggleCompare,
   category,
+  colorsEnabled,
+  onToggleColors,
+  activeFilterCount,
+  onClearFilters,
 }: TableToolbarProps<T>) {
   const [showCols, setShowCols] = useState(false);
   const [showSystems, setShowSystems] = useState(false);
@@ -248,6 +256,18 @@ export function TableToolbar<T extends MemorySystem>({
           </div>
         )}
       </div>
+
+      {/* Colors toggle */}
+      <ToolbarButton onClick={onToggleColors} active={colorsEnabled}>
+        Colors
+      </ToolbarButton>
+
+      {/* Active filters indicator */}
+      {activeFilterCount > 0 && (
+        <ToolbarButton onClick={onClearFilters} active>
+          {activeFilterCount} filter{activeFilterCount > 1 ? "s" : ""} ✕
+        </ToolbarButton>
+      )}
 
       {/* Copy markdown */}
       <ToolbarButton onClick={copyAsMarkdown}>Copy MD</ToolbarButton>

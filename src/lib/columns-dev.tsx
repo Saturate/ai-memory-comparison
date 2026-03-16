@@ -1,6 +1,7 @@
 import { createColumnHelper } from "@tanstack/react-table";
 import { Badge } from "@/components/badge";
 import { ChipList } from "@/components/chip-list";
+import { arrayFilterFn, scalarFilterFn } from "./filter-fns";
 import type { DevTool } from "./types";
 
 const col = createColumnHelper<DevTool>();
@@ -24,6 +25,7 @@ export const devToolColumns = [
       );
     },
     enableHiding: false,
+    enableColumnFilter: false,
   }),
   col.accessor("approach", {
     header: "Approach",
@@ -33,6 +35,7 @@ export const devToolColumns = [
         detail={info.row.original.approachDetail}
       />
     ),
+    filterFn: arrayFilterFn,
   }),
   col.accessor("search", {
     header: "Search",
@@ -42,6 +45,7 @@ export const devToolColumns = [
         detail={info.row.original.searchDetail}
       />
     ),
+    filterFn: arrayFilterFn,
   }),
   col.accessor("storage", {
     header: "Storage",
@@ -51,12 +55,14 @@ export const devToolColumns = [
         detail={info.row.original.storageDetail}
       />
     ),
+    filterFn: arrayFilterFn,
   }),
   col.accessor("mcpSupport", {
     header: "MCP",
     cell: (info) => (
       <Badge value={info.getValue()} detail={info.row.original.mcpDetail} />
     ),
+    filterFn: scalarFilterFn,
     sortingFn: (a, b) => {
       const order = { yes: 0, partial: 1, no: 2 };
       return order[a.original.mcpSupport] - order[b.original.mcpSupport];
@@ -70,6 +76,7 @@ export const devToolColumns = [
         detail={info.row.original.scopesDetail}
       />
     ),
+    filterFn: arrayFilterFn,
   }),
   col.accessor("duplicateDetection", {
     header: "Dedup",
@@ -79,6 +86,7 @@ export const devToolColumns = [
         detail={info.row.original.duplicateDetail}
       />
     ),
+    filterFn: arrayFilterFn,
   }),
   col.accessor("retention", {
     header: "Retention",
@@ -88,6 +96,7 @@ export const devToolColumns = [
         detail={info.row.original.retentionDetail}
       />
     ),
+    filterFn: arrayFilterFn,
   }),
   col.accessor("multiUser", {
     header: "Multi-user",
@@ -97,6 +106,7 @@ export const devToolColumns = [
         detail={info.row.original.multiUserDetail}
       />
     ),
+    filterFn: scalarFilterFn,
     sortingFn: (a, b) => {
       const order = { yes: 0, partial: 1, no: 2 };
       return order[a.original.multiUser] - order[b.original.multiUser];
@@ -110,6 +120,7 @@ export const devToolColumns = [
         detail={info.row.original.crossMachineDetail}
       />
     ),
+    filterFn: scalarFilterFn,
     sortingFn: (a, b) => {
       const order = { yes: 0, partial: 1, no: 2 };
       return order[a.original.crossMachine] - order[b.original.crossMachine];
@@ -120,6 +131,7 @@ export const devToolColumns = [
     cell: (info) => (
       <Badge value={info.getValue()} detail={info.row.original.webUiDetail} />
     ),
+    filterFn: scalarFilterFn,
     sortingFn: (a, b) => {
       const order = { yes: 0, partial: 1, no: 2 };
       return order[a.original.webUi] - order[b.original.webUi];
@@ -133,6 +145,7 @@ export const devToolColumns = [
         detail={info.row.original.tokenBudgetingDetail}
       />
     ),
+    filterFn: arrayFilterFn,
   }),
   col.accessor("toolSupport", {
     header: "Tool Support",
@@ -142,5 +155,6 @@ export const devToolColumns = [
         detail={info.row.original.toolSupportDetail}
       />
     ),
+    filterFn: arrayFilterFn,
   }),
 ];

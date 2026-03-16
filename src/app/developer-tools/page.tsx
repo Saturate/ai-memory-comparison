@@ -1,4 +1,4 @@
-import { Suspense } from "react";
+import { connection } from "next/server";
 import { getDevTools } from "@/lib/data";
 import { DevToolsTableClient } from "./client";
 
@@ -8,7 +8,8 @@ export const metadata = {
     "Compare 16 persistent memory systems for AI coding assistants. MCP support, search, storage, dedup, cross-machine sync, and more.",
 };
 
-export default function DevToolsPage() {
+export default async function DevToolsPage() {
+  await connection();
   const data = getDevTools();
 
   return (
@@ -22,9 +23,7 @@ export default function DevToolsPage() {
           for details.
         </p>
       </div>
-      <Suspense>
-        <DevToolsTableClient data={data} />
-      </Suspense>
+      <DevToolsTableClient data={data} />
     </div>
   );
 }

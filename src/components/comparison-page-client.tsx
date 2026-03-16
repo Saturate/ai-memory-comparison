@@ -2,6 +2,7 @@
 
 import {
   type ColumnDef,
+  type ColumnFiltersState,
   type FilterFn,
   getCoreRowModel,
   getFilteredRowModel,
@@ -12,8 +13,13 @@ import {
 } from "@tanstack/react-table";
 import { useCallback, useMemo, useState } from "react";
 import { useUrlState } from "@/hooks/use-url-state";
+import { ColorProvider } from "@/lib/color-context";
 import type { MemorySystem } from "@/lib/types";
-import { colsToVisibility } from "@/lib/url-state";
+import {
+  colsToVisibility,
+  columnFiltersToRecord,
+  filtersToColumnFilters,
+} from "@/lib/url-state";
 import { ComparisonTable } from "./comparison-table";
 import { SystemDetailDialog } from "./system-detail-dialog";
 import { TableToolbar } from "./table-toolbar";
@@ -48,6 +54,10 @@ export function ComparisonPageClient({
 
   const [sorting, setSorting] = useState<SortingState>(urlState.sort ?? []);
   const [globalFilter, setGlobalFilter] = useState(urlState.q ?? "");
+  const [colorsEnabled, setColorsEnabled] = useState(urlState.colors !== false);
+  const [columnFilters, setColumnFilters] = useState<ColumnFiltersState>(
+    filtersToColumnFilters(urlState.filters),
+  );
   const [selectedSystem, setSelectedSystem] = useState<MemorySystem | null>(
     null,
   );
@@ -84,6 +94,7 @@ export function ComparisonPageClient({
       sorting,
       columnVisibility,
       globalFilter,
+      columnFilters,
     },
     onSortingChange: (updater) => {
       const next = typeof updater === "function" ? updater(sorting) : updater;
@@ -99,6 +110,12 @@ export function ComparisonPageClient({
         cols: visibleIds.length < allColumnIds.length ? visibleIds : undefined,
       });
     },
+    onColumnFiltersChange: (updater) => {
+      const next =
+        typeof updater === "function" ? updater(columnFilters) : updater;
+      setColumnFilters(next);
+      setUrlState({ filters: columnFiltersToRecord(next) });
+    },
     onGlobalFilterChange: setGlobalFilter,
     globalFilterFn,
     getCoreRowModel: getCoreRowModel(),
@@ -113,6 +130,14 @@ export function ComparisonPageClient({
     },
     [setUrlState],
   );
+
+  const toggleColors = useCallback(() => {
+    setColorsEnabled((prev) => {
+      const next = !prev;
+      setUrlState({ colors: next ? undefined : false });
+      return next;
+    });
+  }, [setUrlState]);
 
   const toggleSystem = useCallback(
     (slug: string) => {
@@ -148,29 +173,47 @@ export function ComparisonPageClient({
     });
   }, []);
 
+  const activeFilterCount = columnFilters.reduce(
+    (count, f) => count + (Array.isArray(f.value) ? f.value.length : 0),
+    0,
+  );
+
   return (
-    <div>
-      <TableToolbar
-        table={table}
-        globalFilter={globalFilter}
-        onGlobalFilterChange={handleGlobalFilterChange}
-        allSystems={data}
-        visibleSlugs={visibleSlugs}
-        onToggleSystem={toggleSystem}
-        onSelectAllSystems={selectAllSystems}
-        onDeselectAllSystems={deselectAllSystems}
-        selectedForCompare={selectedForCompare}
-        onToggleCompare={toggleCompare}
-        category={category}
-      />
-      <ComparisonTable table={table} onSelectSystem={setSelectedSystem} />
-      <p className="text-[11px] text-muted-foreground font-mono mt-3">
-        Click any row for details
-      </p>
-      <SystemDetailDialog
-        system={selectedSystem}
-        onClose={() => setSelectedSystem(null)}
-      />
-    </div>
+    <ColorProvider value={colorsEnabled}>
+      <div>
+        <TableToolbar
+          table={table}
+          globalFilter={globalFilter}
+          onGlobalFilterChange={handleGlobalFilterChange}
+          allSystems={data}
+          visibleSlugs={visibleSlugs}
+          onToggleSystem={toggleSystem}
+          onSelectAllSystems={selectAllSystems}
+          onDeselectAllSystems={deselectAllSystems}
+          selectedForCompare={selectedForCompare}
+          onToggleCompare={toggleCompare}
+          category={category}
+          colorsEnabled={colorsEnabled}
+          onToggleColors={toggleColors}
+          activeFilterCount={activeFilterCount}
+          onClearFilters={() => {
+            setColumnFilters([]);
+            setUrlState({ filters: undefined });
+          }}
+        />
+        <ComparisonTable
+          table={table}
+          onSelectSystem={setSelectedSystem}
+          allData={data}
+        />
+        <p className="text-[11px] text-muted-foreground font-mono mt-3">
+          Click any row for details
+        </p>
+        <SystemDetailDialog
+          system={selectedSystem}
+          onClose={() => setSelectedSystem(null)}
+        />
+      </div>
+    </ColorProvider>
   );
 }
