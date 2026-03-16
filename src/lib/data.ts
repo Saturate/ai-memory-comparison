@@ -1,0 +1,29 @@
+import fs from "fs";
+import path from "path";
+import { DevToolSchema, UserMemorySchema } from "./types";
+import type { DevTool, UserMemory } from "./types";
+
+function loadJsonFiles<T>(dir: string, schema: { parse: (data: unknown) => T }): T[] {
+  const dataDir = path.join(process.cwd(), "data", dir);
+  const files = fs.readdirSync(dataDir).filter((f) => f.endsWith(".json"));
+  return files.map((file) => {
+    const raw = JSON.parse(fs.readFileSync(path.join(dataDir, file), "utf-8"));
+    // Strip null values — Zod v4 doesn't coerce null to undefined for optional fields
+    const cleaned = Object.fromEntries(
+      Object.entries(raw).filter(([, v]) => v !== null)
+    );
+    return schema.parse(cleaned);
+  });
+}
+
+export function getDevTools(): DevTool[] {
+  return loadJsonFiles("developer-tools", DevToolSchema);
+}
+
+export function getUserMemory(): UserMemory[] {
+  return loadJsonFiles("user-memory", UserMemorySchema);
+}
+
+export function getAllSystems(): (DevTool | UserMemory)[] {
+  return [...getDevTools(), ...getUserMemory()];
+}

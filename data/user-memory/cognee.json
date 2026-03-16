@@ -1,0 +1,41 @@
+{
+  "slug": "cognee",
+  "name": "Cognee",
+  "description": "Knowledge engine with ECL pipeline (Extract, Cognify, Load). Self-improving memory that prunes stale nodes and reweights edges.",
+  "url": "https://www.cognee.ai",
+  "repo": "https://github.com/topoteretes/cognee",
+  "license": "Apache-2.0",
+  "language": ["Python"],
+  "approach": ["knowledge graph", "vector"],
+  "approachDetail": "Knowledge graph + vector with ECL pipeline (Extract, Cognify, Load)",
+  "category": "user-memory",
+  "hosting": ["cloud", "self-hosted"],
+  "hostingDetail": null,
+  "pricing": "freemium",
+  "pricingDetail": "Free self-hosted, paid cloud",
+  "sdks": ["Python", "REST API"],
+  "sdksDetail": null,
+  "scopes": ["user", "agent"],
+  "scopesDetail": null,
+  "temporalAwareness": "partial",
+  "temporalDetail": "Graph edges track temporal relationships",
+  "selfImproving": "yes",
+  "selfImprovingDetail": "Prunes stale nodes and reweights edges automatically",
+  "multiTenant": "yes",
+  "multiTenantDetail": "Multi-tenant support for production deployments",
+  "search": ["semantic", "graph", "keyword"],
+  "searchDetail": null,
+  "storage": ["PostgreSQL", "Neo4j", "cloud"],
+  "storageDetail": null,
+  "githubStars": "12.9k",
+  "funding": "Venture-backed",
+  "pros": [
+    "Self-improving memory",
+    "ECL pipeline for structured ingestion",
+    "Flexible storage backends"
+  ],
+  "cons": [
+    "Smaller community than alternatives",
+    "Python-only SDK"
+  ]
+}

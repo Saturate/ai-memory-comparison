@@ -1,0 +1,42 @@
+{
+  "slug": "zep",
+  "name": "Zep",
+  "description": "Enterprise context platform. Temporal knowledge graphs that track how customer preferences evolve over time. Graphiti engine is open source.",
+  "url": "https://www.getzep.com",
+  "repo": "https://github.com/getzep/graphiti",
+  "license": "Apache-2.0",
+  "language": ["Python", "TypeScript"],
+  "approach": ["temporal knowledge graph"],
+  "approachDetail": "Temporal knowledge graphs tracking preference evolution",
+  "category": "user-memory",
+  "hosting": ["cloud", "self-hosted"],
+  "hostingDetail": null,
+  "pricing": "paid",
+  "pricingDetail": "Enterprise pricing, open-source Graphiti engine",
+  "sdks": ["Python", "TypeScript", "REST API", "LangChain"],
+  "sdksDetail": null,
+  "scopes": ["user", "session", "agent", "org"],
+  "scopesDetail": null,
+  "temporalAwareness": "yes",
+  "temporalDetail": "Core feature — tracks how preferences and knowledge evolve over time",
+  "selfImproving": "yes",
+  "selfImprovingDetail": "Graph automatically updates relationships as new information arrives",
+  "multiTenant": "yes",
+  "multiTenantDetail": "Enterprise multi-tenant support",
+  "search": ["semantic", "graph", "keyword", "hybrid"],
+  "searchDetail": null,
+  "storage": ["cloud", "Neo4j"],
+  "storageDetail": null,
+  "githubStars": "23.2k",
+  "funding": "Venture-backed",
+  "pros": [
+    "Best-in-class temporal awareness",
+    "Enterprise-grade",
+    "Open-source Graphiti engine",
+    "Rich SDK ecosystem"
+  ],
+  "cons": [
+    "Enterprise pricing",
+    "Complex setup for self-hosted"
+  ]
+}

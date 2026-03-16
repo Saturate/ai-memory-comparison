@@ -1,0 +1,42 @@
+{
+  "slug": "mem0",
+  "name": "Mem0",
+  "description": "Memory API for AI apps. User/session/agent scopes for personalizing chatbots and agents.",
+  "url": "https://mem0.ai",
+  "repo": "https://github.com/mem0ai/mem0",
+  "license": "Apache-2.0",
+  "language": ["Python", "TypeScript"],
+  "approach": ["vector", "graph"],
+  "approachDetail": "Vector + graph hybrid memory for AI applications",
+  "category": "user-memory",
+  "hosting": ["cloud", "self-hosted"],
+  "hostingDetail": null,
+  "pricing": "freemium",
+  "pricingDetail": "Free tier available, paid plans for production",
+  "sdks": ["Python", "TypeScript", "REST API"],
+  "sdksDetail": null,
+  "scopes": ["user", "session", "agent"],
+  "scopesDetail": null,
+  "temporalAwareness": "partial",
+  "temporalDetail": "Tracks memory creation/update times",
+  "selfImproving": "yes",
+  "selfImprovingDetail": "Automatically consolidates and updates memories",
+  "multiTenant": "yes",
+  "multiTenantDetail": "Built for multi-tenant AI applications",
+  "search": ["semantic", "graph"],
+  "searchDetail": null,
+  "storage": ["cloud", "self-hosted"],
+  "storageDetail": null,
+  "githubStars": "48.5k",
+  "funding": "$24M Series A",
+  "pros": [
+    "Massive community (48.5k stars)",
+    "Well-funded and actively maintained",
+    "Easy API",
+    "Multi-scope support"
+  ],
+  "cons": [
+    "Cloud dependency for managed version",
+    "Less control over storage internals"
+  ]
+}

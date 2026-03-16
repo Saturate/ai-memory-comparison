@@ -1,0 +1,42 @@
+{
+  "slug": "letta",
+  "name": "Letta",
+  "description": "Stateful agent platform (formerly MemGPT). Agents self-manage their own memory using an OS-inspired hierarchy: core memory (RAM) vs archival memory (disk).",
+  "url": "https://www.letta.com",
+  "repo": "https://github.com/letta-ai/letta",
+  "license": "Apache-2.0",
+  "language": ["Python"],
+  "approach": ["OS-style memory tiers"],
+  "approachDetail": "OS-inspired hierarchy: core memory (RAM) vs archival memory (disk)",
+  "category": "user-memory",
+  "hosting": ["cloud", "self-hosted"],
+  "hostingDetail": null,
+  "pricing": "freemium",
+  "pricingDetail": "Free self-hosted, paid cloud platform",
+  "sdks": ["Python", "TypeScript", "REST API"],
+  "sdksDetail": null,
+  "scopes": ["agent", "user", "session"],
+  "scopesDetail": null,
+  "temporalAwareness": "partial",
+  "temporalDetail": "Agents can track conversation history and evolving context",
+  "selfImproving": "yes",
+  "selfImprovingDetail": "Agents self-manage memory — deciding what to keep, archive, or forget",
+  "multiTenant": "yes",
+  "multiTenantDetail": "Multi-agent, multi-user platform",
+  "search": ["semantic", "keyword"],
+  "searchDetail": null,
+  "storage": ["PostgreSQL", "cloud"],
+  "storageDetail": null,
+  "githubStars": "20.3k",
+  "funding": "Venture-backed",
+  "pros": [
+    "Unique OS-inspired memory model",
+    "Self-managing agents",
+    "Large community",
+    "Formerly MemGPT"
+  ],
+  "cons": [
+    "Python-centric",
+    "Complex memory model to understand"
+  ]
+}
