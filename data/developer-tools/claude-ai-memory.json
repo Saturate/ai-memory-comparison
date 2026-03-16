@@ -1,4 +1,5 @@
 {
+  "$schema": "../../schemas/developer-tool.schema.json",
   "slug": "claude-ai-memory",
   "name": "Claude.ai Memory",
   "description": "Claude.ai's built-in memory. Remembers preferences and context across conversations. Processed in daily synthesis cycles. UI-only management.",

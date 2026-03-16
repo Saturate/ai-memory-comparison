@@ -1,4 +1,5 @@
 {
+  "$schema": "../../schemas/user-memory.schema.json",
   "slug": "mem0",
   "name": "Mem0",
   "description": "Memory API for AI apps. User/session/agent scopes for personalizing chatbots and agents.",

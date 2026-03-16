@@ -39,10 +39,12 @@ Edit the relevant JSON file and submit a PR. Include a source link for any claim
 
 ### Schemas
 
-Both categories have their own Zod schema — see [`src/lib/types.ts`](src/lib/types.ts) for the full definitions:
+Each JSON file includes a `$schema` reference for editor validation. JSON Schemas are generated from the Zod source of truth at build time (`pnpm generate-schemas`):
 
-- [`DevToolSchema`](src/lib/types.ts) — developer tools (MCP, search, storage, dedup, retention, etc.)
-- [`UserMemorySchema`](src/lib/types.ts) — user memory platforms (hosting, pricing, SDKs, temporal awareness, etc.)
+- [`schemas/developer-tool.schema.json`](schemas/developer-tool.schema.json) — developer tools
+- [`schemas/user-memory.schema.json`](schemas/user-memory.schema.json) — user memory platforms
+
+Zod definitions: [`src/lib/types.ts`](src/lib/types.ts)
 
 ## Development
 

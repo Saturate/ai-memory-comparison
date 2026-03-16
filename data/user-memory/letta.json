@@ -1,4 +1,5 @@
 {
+  "$schema": "../../schemas/user-memory.schema.json",
   "slug": "letta",
   "name": "Letta",
   "description": "Stateful agent platform (formerly MemGPT). Agents self-manage their own memory using an OS-inspired hierarchy: core memory (RAM) vs archival memory (disk).",

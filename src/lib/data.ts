@@ -8,9 +8,9 @@ function loadJsonFiles<T>(dir: string, schema: { parse: (data: unknown) => T }):
   const files = fs.readdirSync(dataDir).filter((f) => f.endsWith(".json"));
   return files.map((file) => {
     const raw = JSON.parse(fs.readFileSync(path.join(dataDir, file), "utf-8"));
-    // Strip null values — Zod v4 doesn't coerce null to undefined for optional fields
+    // Strip null values and $schema — Zod v4 doesn't coerce null to undefined for optional fields
     const cleaned = Object.fromEntries(
-      Object.entries(raw).filter(([, v]) => v !== null)
+      Object.entries(raw).filter(([k, v]) => v !== null && k !== "$schema")
     );
     return schema.parse(cleaned);
   });

@@ -1,4 +1,5 @@
 {
+  "$schema": "../../schemas/developer-tool.schema.json",
   "slug": "claude-mem",
   "name": "claude-mem",
   "description": "MCP memory server using ChromaDB for vector storage with AI-powered memory compression and merging.",

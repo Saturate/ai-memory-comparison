@@ -1,4 +1,5 @@
 {
+  "$schema": "../../schemas/user-memory.schema.json",
   "slug": "zep",
   "name": "Zep",
   "description": "Enterprise context platform. Temporal knowledge graphs that track how customer preferences evolve over time. Graphiti engine is open source.",

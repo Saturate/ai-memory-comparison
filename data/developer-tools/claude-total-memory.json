@@ -1,4 +1,5 @@
 {
+  "$schema": "../../schemas/developer-tool.schema.json",
   "slug": "claude-total-memory",
   "name": "claude-total-memory",
   "description": "4-tier hybrid memory with semantic, keyword, fuzzy, and graph search. Categorizes memories into 5 knowledge types with retention zones.",

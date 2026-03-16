@@ -1,4 +1,5 @@
 {
+  "$schema": "../../schemas/developer-tool.schema.json",
   "slug": "supermemory",
   "name": "Supermemory",
   "description": "Cloud-hosted vector memory service with automatic contradiction detection and multi-tenant support.",

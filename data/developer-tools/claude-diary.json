@@ -1,4 +1,5 @@
 {
+  "$schema": "../../schemas/developer-tool.schema.json",
   "slug": "claude-diary",
   "name": "claude-diary",
   "description": "Simple file-based memory using markdown files. The AI reads diary entries at session start.",

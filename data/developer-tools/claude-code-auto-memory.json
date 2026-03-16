@@ -1,4 +1,5 @@
 {
+  "$schema": "../../schemas/developer-tool.schema.json",
   "slug": "claude-code-auto-memory",
   "name": "Claude Code Auto Memory",
   "description": "Claude Code's built-in memory system. Writes notes to ~/.claude/projects/*/memory/MEMORY.md as it works. Plain markdown, machine-local.",

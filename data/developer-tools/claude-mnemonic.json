@@ -1,4 +1,5 @@
 {
+  "$schema": "../../schemas/developer-tool.schema.json",
   "slug": "claude-mnemonic",
   "name": "claude-mnemonic",
   "description": "Two-stage retrieval memory system with bi-encoder semantic search and cross-encoder reranking, built on SQLite.",

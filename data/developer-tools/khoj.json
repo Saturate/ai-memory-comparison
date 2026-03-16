@@ -1,4 +1,5 @@
 {
+  "$schema": "../../schemas/developer-tool.schema.json",
   "slug": "khoj",
   "name": "Khoj",
   "description": "AI personal assistant with vector search, document indexing, cloud sync, and multi-platform support.",

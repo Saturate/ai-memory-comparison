@@ -1,4 +1,5 @@
 {
+  "$schema": "../../schemas/developer-tool.schema.json",
   "slug": "mcp-memory-service",
   "name": "mcp-memory-service",
   "description": "Hybrid memory service combining vector search, knowledge graph, and BM25 with optional Cloudflare cloud sync.",

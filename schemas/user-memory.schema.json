@@ -1,0 +1,172 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "type": "object",
+  "properties": {
+    "slug": {
+      "type": "string"
+    },
+    "name": {
+      "type": "string"
+    },
+    "description": {
+      "type": "string"
+    },
+    "url": {
+      "type": "string",
+      "format": "uri"
+    },
+    "repo": {
+      "type": "string",
+      "format": "uri"
+    },
+    "license": {
+      "type": "string"
+    },
+    "language": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "approach": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "approachDetail": {
+      "type": "string"
+    },
+    "notes": {
+      "type": "string"
+    },
+    "category": {
+      "type": "string",
+      "const": "user-memory"
+    },
+    "hosting": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "hostingDetail": {
+      "type": "string"
+    },
+    "pricing": {
+      "type": "string"
+    },
+    "pricingDetail": {
+      "type": "string"
+    },
+    "sdks": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "sdksDetail": {
+      "type": "string"
+    },
+    "scopes": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "scopesDetail": {
+      "type": "string"
+    },
+    "temporalAwareness": {
+      "type": "string",
+      "enum": [
+        "yes",
+        "no",
+        "partial"
+      ]
+    },
+    "temporalDetail": {
+      "type": "string"
+    },
+    "selfImproving": {
+      "type": "string",
+      "enum": [
+        "yes",
+        "no",
+        "partial"
+      ]
+    },
+    "selfImprovingDetail": {
+      "type": "string"
+    },
+    "multiTenant": {
+      "type": "string",
+      "enum": [
+        "yes",
+        "no",
+        "partial"
+      ]
+    },
+    "multiTenantDetail": {
+      "type": "string"
+    },
+    "search": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "searchDetail": {
+      "type": "string"
+    },
+    "storage": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "storageDetail": {
+      "type": "string"
+    },
+    "githubStars": {
+      "type": "string"
+    },
+    "funding": {
+      "type": "string"
+    },
+    "pros": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "cons": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    }
+  },
+  "required": [
+    "slug",
+    "name",
+    "description",
+    "url",
+    "language",
+    "approach",
+    "category",
+    "hosting",
+    "pricing",
+    "sdks",
+    "scopes",
+    "temporalAwareness",
+    "selfImproving",
+    "multiTenant",
+    "search",
+    "storage"
+  ],
+  "additionalProperties": false,
+  "$id": "https://github.com/Saturate/ai-memory-comparison/schemas/user-memory.schema.json",
+  "title": "User Memory Platform",
+  "description": "Schema for AI user memory platform entries in data/user-memory/"
+}

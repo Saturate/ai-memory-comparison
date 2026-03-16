@@ -1,4 +1,5 @@
 {
+  "$schema": "../../schemas/developer-tool.schema.json",
   "slug": "mnemon",
   "name": "mnemon",
   "description": "Four-graph memory system using temporal, entity, causal, and semantic graphs stored in SQLite.",

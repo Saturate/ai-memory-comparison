@@ -1,4 +1,5 @@
 {
+  "$schema": "../../schemas/developer-tool.schema.json",
   "slug": "yams",
   "name": "trvon/yams",
   "description": "Content-addressed storage with SHA-256 hashing and block-level dedup. More 'smart git' than traditional memory system.",

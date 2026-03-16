@@ -5,7 +5,8 @@
   "private": true,
   "scripts": {
     "dev": "next dev --turbopack",
-    "build": "next build",
+    "generate-schemas": "tsx scripts/generate-schemas.ts",
+    "build": "tsx scripts/generate-schemas.ts && next build",
     "start": "next start",
     "lint": "next lint"
   },
@@ -30,6 +31,7 @@
     "@types/react-dom": "^19.2.3",
     "postcss": "^8.5.8",
     "tailwindcss": "^4.2.1",
+    "tsx": "^4.21.0",
     "typescript": "^5.9.3"
   }
 }

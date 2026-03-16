@@ -1,4 +1,5 @@
 {
+  "$schema": "../../schemas/developer-tool.schema.json",
   "slug": "claude-memory-api",
   "name": "Claude Memory API",
   "description": "Claude Memory API (memory_20250818). A client-side tool where Claude emits file operations and your application handles storage. Anthropic stores nothing.",

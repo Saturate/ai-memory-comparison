@@ -1,4 +1,5 @@
 {
+  "$schema": "../../schemas/developer-tool.schema.json",
   "slug": "knowledge-bank",
   "name": "knowledge-bank",
   "description": "Knowledge management system with SQLite FTS5 full-text search and automatic type/scope classification.",

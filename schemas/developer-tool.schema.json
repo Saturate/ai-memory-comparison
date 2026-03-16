@@ -1,0 +1,209 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "type": "object",
+  "properties": {
+    "slug": {
+      "type": "string"
+    },
+    "name": {
+      "type": "string"
+    },
+    "description": {
+      "type": "string"
+    },
+    "url": {
+      "type": "string",
+      "format": "uri"
+    },
+    "repo": {
+      "type": "string",
+      "format": "uri"
+    },
+    "license": {
+      "type": "string"
+    },
+    "language": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "approach": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "approachDetail": {
+      "type": "string"
+    },
+    "notes": {
+      "type": "string"
+    },
+    "category": {
+      "type": "string",
+      "const": "developer-tools"
+    },
+    "search": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "searchDetail": {
+      "type": "string"
+    },
+    "storage": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "storageDetail": {
+      "type": "string"
+    },
+    "mcpSupport": {
+      "type": "string",
+      "enum": [
+        "yes",
+        "no",
+        "partial"
+      ]
+    },
+    "mcpDetail": {
+      "type": "string"
+    },
+    "toolSupport": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "toolSupportDetail": {
+      "type": "string"
+    },
+    "scopes": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "scopesDetail": {
+      "type": "string"
+    },
+    "duplicateDetection": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "duplicateDetail": {
+      "type": "string"
+    },
+    "retention": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "retentionDetail": {
+      "type": "string"
+    },
+    "multiUser": {
+      "type": "string",
+      "enum": [
+        "yes",
+        "no",
+        "partial"
+      ]
+    },
+    "multiUserDetail": {
+      "type": "string"
+    },
+    "crossMachine": {
+      "type": "string",
+      "enum": [
+        "yes",
+        "no",
+        "partial"
+      ]
+    },
+    "crossMachineDetail": {
+      "type": "string"
+    },
+    "webUi": {
+      "type": "string",
+      "enum": [
+        "yes",
+        "no",
+        "partial"
+      ]
+    },
+    "webUiDetail": {
+      "type": "string"
+    },
+    "tokenBudgeting": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "tokenBudgetingDetail": {
+      "type": "string"
+    },
+    "setupComplexity": {
+      "type": "string",
+      "enum": [
+        "low",
+        "medium",
+        "high"
+      ]
+    },
+    "maturity": {
+      "type": "string",
+      "enum": [
+        "experimental",
+        "alpha",
+        "beta",
+        "stable",
+        "mature"
+      ]
+    },
+    "pros": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "cons": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    }
+  },
+  "required": [
+    "slug",
+    "name",
+    "description",
+    "url",
+    "language",
+    "approach",
+    "category",
+    "search",
+    "storage",
+    "mcpSupport",
+    "toolSupport",
+    "scopes",
+    "duplicateDetection",
+    "retention",
+    "multiUser",
+    "crossMachine",
+    "webUi",
+    "tokenBudgeting"
+  ],
+  "additionalProperties": false,
+  "$id": "https://github.com/Saturate/ai-memory-comparison/schemas/developer-tool.schema.json",
+  "title": "Developer Tool",
+  "description": "Schema for AI developer memory tool entries in data/developer-tools/"
+}

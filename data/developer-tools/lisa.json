@@ -1,4 +1,5 @@
 {
+  "$schema": "../../schemas/developer-tool.schema.json",
   "slug": "lisa",
   "name": "lisa",
   "description": "Knowledge graph memory system using Neo4j for entity relationships and graph-based retrieval.",

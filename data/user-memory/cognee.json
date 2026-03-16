@@ -1,4 +1,5 @@
 {
+  "$schema": "../../schemas/user-memory.schema.json",
   "slug": "cognee",
   "name": "Cognee",
   "description": "Knowledge engine with ECL pipeline (Extract, Cognify, Load). Self-improving memory that prunes stale nodes and reweights edges.",

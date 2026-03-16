@@ -1,4 +1,5 @@
 {
+  "$schema": "../../schemas/developer-tool.schema.json",
   "slug": "husk",
   "name": "HUSK",
   "description": "Self-hosted AI memory server with vector search, scoped retention, and multi-user support. All your machines connect to one instance.",
