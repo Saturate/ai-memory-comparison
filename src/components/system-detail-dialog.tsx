@@ -56,7 +56,7 @@ export function SystemDetailDialog({ system, onClose }: SystemDetailDialogProps)
         if (e.target === overlayRef.current) onClose();
       }}
     >
-      <div className="absolute inset-0 bg-black/40 dark:bg-black/60 backdrop-blur-sm" />
+      <div className="absolute inset-0 bg-black/40 dark:bg-black/60 backdrop-blur-sm" onClick={onClose} />
       <div className="dialog-content relative w-full max-w-2xl max-h-[75vh] overflow-y-auto rounded-xl border border-border bg-card shadow-2xl">
         {/* Header */}
         <div className="sticky top-0 z-10 flex items-start justify-between border-b border-border bg-card/95 backdrop-blur-sm p-5">
