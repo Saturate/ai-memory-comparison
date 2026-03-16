@@ -1,4 +1,4 @@
-import type { DevTool, UserMemory, MemorySystem } from "@/lib/types";
+import type { DevTool, MemorySystem } from "@/lib/types";
 import { Badge } from "./badge";
 import { ChipList } from "./chip-list";
 
@@ -20,7 +20,9 @@ export function ExpandableRow({ system }: ExpandableRowProps) {
 
       {system.pros && system.pros.length > 0 && (
         <div>
-          <h4 className="font-medium mb-1 text-green-700 dark:text-green-400">Pros</h4>
+          <h4 className="font-medium mb-1 text-green-700 dark:text-green-400">
+            Pros
+          </h4>
           <ul className="list-disc list-inside text-muted-foreground space-y-0.5">
             {system.pros.map((p) => (
               <li key={p}>{p}</li>
@@ -31,7 +33,9 @@ export function ExpandableRow({ system }: ExpandableRowProps) {
 
       {system.cons && system.cons.length > 0 && (
         <div>
-          <h4 className="font-medium mb-1 text-red-700 dark:text-red-400">Cons</h4>
+          <h4 className="font-medium mb-1 text-red-700 dark:text-red-400">
+            Cons
+          </h4>
           <ul className="list-disc list-inside text-muted-foreground space-y-0.5">
             {system.cons.map((c) => (
               <li key={c}>{c}</li>

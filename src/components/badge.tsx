@@ -7,8 +7,7 @@ const variantClasses: Record<BadgeVariant, string> = {
   no: "bg-red-50 text-red-600 border-red-200 dark:bg-red-950/40 dark:text-red-400 dark:border-red-800/50",
   partial:
     "bg-amber-50 text-amber-700 border-amber-200 dark:bg-amber-950/40 dark:text-amber-400 dark:border-amber-800/50",
-  default:
-    "bg-muted text-muted-foreground border-border",
+  default: "bg-muted text-muted-foreground border-border",
 };
 
 const variantLabels: Record<string, string> = {
@@ -37,7 +36,7 @@ export function Badge({ value, detail, className }: BadgeProps) {
         "inline-flex items-center rounded-md border px-1.5 py-0.5 text-[11px] font-mono font-medium whitespace-nowrap",
         variantClasses[variant],
         detail && "cursor-help border-dashed",
-        className
+        className,
       )}
       title={detail}
     >

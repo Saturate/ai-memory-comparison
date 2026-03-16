@@ -18,7 +18,8 @@ export default function DevToolsPage() {
           Developer Memory Tools
         </h1>
         <p className="text-sm text-muted-foreground">
-          {data.length} memory systems for AI coding assistants. Click any row for details.
+          {data.length} memory systems for AI coding assistants. Click any row
+          for details.
         </p>
       </div>
       <Suspense>

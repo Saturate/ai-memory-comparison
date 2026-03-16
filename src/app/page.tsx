@@ -31,8 +31,8 @@ export default function HomePage() {
             </h1>
             <p className="text-lg text-muted-foreground leading-relaxed max-w-xl">
               Interactive comparison tables for persistent memory in coding
-              assistants, agents, and chatbots. Filter, sort, and compare
-              side by side.
+              assistants, agents, and chatbots. Filter, sort, and compare side
+              by side.
             </p>
           </div>
 
@@ -69,20 +69,36 @@ export default function HomePage() {
               search, cross-machine sync, token budgets, dedup strategies.
             </p>
             <div className="flex flex-wrap gap-1.5">
-              {["MCP", "Search", "Storage", "Dedup", "Retention", "Multi-user"].map(
-                (tag) => (
-                  <span
-                    key={tag}
-                    className="inline-flex items-center rounded-md bg-muted px-1.5 py-0.5 text-[11px] font-mono text-muted-foreground"
-                  >
-                    {tag}
-                  </span>
-                )
-              )}
+              {[
+                "MCP",
+                "Search",
+                "Storage",
+                "Dedup",
+                "Retention",
+                "Multi-user",
+              ].map((tag) => (
+                <span
+                  key={tag}
+                  className="inline-flex items-center rounded-md bg-muted px-1.5 py-0.5 text-[11px] font-mono text-muted-foreground"
+                >
+                  {tag}
+                </span>
+              ))}
             </div>
             <div className="absolute bottom-6 right-6 sm:bottom-8 sm:right-8 text-muted-foreground group-hover:text-primary group-hover:translate-x-0.5 transition-all">
-              <svg className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
-                <path strokeLinecap="round" strokeLinejoin="round" d="M9 5l7 7-7 7" />
+              <svg
+                className="h-5 w-5"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+                strokeWidth={2}
+                aria-hidden="true"
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  d="M9 5l7 7-7 7"
+                />
               </svg>
             </div>
           </Link>
@@ -115,12 +131,23 @@ export default function HomePage() {
                   >
                     {tag}
                   </span>
-                )
+                ),
               )}
             </div>
             <div className="absolute bottom-6 right-6 sm:bottom-8 sm:right-8 text-muted-foreground group-hover:text-primary group-hover:translate-x-0.5 transition-all">
-              <svg className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
-                <path strokeLinecap="round" strokeLinejoin="round" d="M9 5l7 7-7 7" />
+              <svg
+                className="h-5 w-5"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+                strokeWidth={2}
+                aria-hidden="true"
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  d="M9 5l7 7-7 7"
+                />
               </svg>
             </div>
           </Link>
@@ -145,8 +172,19 @@ export default function HomePage() {
             <div className="rounded-lg border border-border bg-card p-5">
               <div className="flex items-center gap-3 mb-3">
                 <div className="flex h-7 w-7 items-center justify-center rounded-md bg-success/10 text-success">
-                  <svg className="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
-                    <path strokeLinecap="round" strokeLinejoin="round" d="M12 4v16m8-8H4" />
+                  <svg
+                    className="h-4 w-4"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    stroke="currentColor"
+                    strokeWidth={2}
+                    aria-hidden="true"
+                  >
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      d="M12 4v16m8-8H4"
+                    />
                   </svg>
                 </div>
                 <h3 className="font-semibold text-sm">Add a system</h3>
@@ -166,8 +204,19 @@ export default function HomePage() {
             <div className="rounded-lg border border-border bg-card p-5">
               <div className="flex items-center gap-3 mb-3">
                 <div className="flex h-7 w-7 items-center justify-center rounded-md bg-primary/10 text-primary">
-                  <svg className="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
-                    <path strokeLinecap="round" strokeLinejoin="round" d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z" />
+                  <svg
+                    className="h-4 w-4"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    stroke="currentColor"
+                    strokeWidth={2}
+                    aria-hidden="true"
+                  >
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z"
+                    />
                   </svg>
                 </div>
                 <h3 className="font-semibold text-sm">Update the data</h3>

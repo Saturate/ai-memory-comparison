@@ -1,6 +1,6 @@
-import { getAllSystems } from "@/lib/data";
-import { ComparisonCards } from "@/components/comparison-cards";
 import Link from "next/link";
+import { ComparisonCards } from "@/components/comparison-cards";
+import { getAllSystems } from "@/lib/data";
 
 export const metadata = {
   title: "Compare — AI Memory Comparison",
@@ -21,11 +21,17 @@ export default async function ComparePage({ searchParams }: ComparePageProps) {
         <h1 className="text-2xl font-bold tracking-tight mb-4">Compare</h1>
         <p className="text-sm text-muted-foreground mb-4">
           Select 2-4 systems from the{" "}
-          <Link href="/developer-tools" className="text-primary hover:underline font-medium">
+          <Link
+            href="/developer-tools"
+            className="text-primary hover:underline font-medium"
+          >
             developer tools
           </Link>{" "}
           or{" "}
-          <Link href="/user-memory" className="text-primary hover:underline font-medium">
+          <Link
+            href="/user-memory"
+            className="text-primary hover:underline font-medium"
+          >
             user memory
           </Link>{" "}
           table to compare side by side.
@@ -50,7 +56,8 @@ export default async function ComparePage({ searchParams }: ComparePageProps) {
     );
   }
 
-  const backHref = params.category === "user-memory" ? "/user-memory" : "/developer-tools";
+  const backHref =
+    params.category === "user-memory" ? "/user-memory" : "/developer-tools";
 
   return (
     <div className="mx-auto max-w-7xl px-4 sm:px-6 py-8">

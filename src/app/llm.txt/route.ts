@@ -1,5 +1,5 @@
 import { getDevTools, getUserMemory } from "@/lib/data";
-import { SITE_URL, markdownResponse } from "@/lib/llm-txt";
+import { markdownResponse, SITE_URL } from "@/lib/llm-txt";
 
 export async function GET() {
   const devTools = getDevTools();

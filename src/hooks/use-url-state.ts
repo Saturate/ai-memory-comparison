@@ -1,11 +1,11 @@
 "use client";
 
-import { useCallback } from "react";
 import { useRouter, useSearchParams } from "next/navigation";
+import { useCallback } from "react";
 import {
-  type TableUrlState,
   parseUrlState,
   serializeUrlState,
+  type TableUrlState,
 } from "@/lib/url-state";
 
 export function useUrlState() {
@@ -22,7 +22,7 @@ export function useUrlState() {
       const qs = params.toString();
       router.replace(qs ? `?${qs}` : "?", { scroll: false });
     },
-    [router, searchParams]
+    [router, searchParams],
   );
 
   return { state, setState };

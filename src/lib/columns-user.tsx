@@ -1,7 +1,7 @@
 import { createColumnHelper } from "@tanstack/react-table";
-import type { UserMemory } from "./types";
 import { Badge } from "@/components/badge";
 import { ChipList } from "@/components/chip-list";
+import type { UserMemory } from "./types";
 
 const col = createColumnHelper<UserMemory>();
 
@@ -28,13 +28,19 @@ export const userMemoryColumns = [
   col.accessor("approach", {
     header: "Approach",
     cell: (info) => (
-      <ChipList items={info.getValue()} detail={info.row.original.approachDetail} />
+      <ChipList
+        items={info.getValue()}
+        detail={info.row.original.approachDetail}
+      />
     ),
   }),
   col.accessor("hosting", {
     header: "Hosting",
     cell: (info) => (
-      <ChipList items={info.getValue()} detail={info.row.original.hostingDetail} />
+      <ChipList
+        items={info.getValue()}
+        detail={info.row.original.hostingDetail}
+      />
     ),
   }),
   col.accessor("pricing", {
@@ -52,23 +58,35 @@ export const userMemoryColumns = [
   col.accessor("scopes", {
     header: "Scopes",
     cell: (info) => (
-      <ChipList items={info.getValue()} detail={info.row.original.scopesDetail} />
+      <ChipList
+        items={info.getValue()}
+        detail={info.row.original.scopesDetail}
+      />
     ),
   }),
   col.accessor("temporalAwareness", {
     header: "Temporal",
     cell: (info) => (
-      <Badge value={info.getValue()} detail={info.row.original.temporalDetail} />
+      <Badge
+        value={info.getValue()}
+        detail={info.row.original.temporalDetail}
+      />
     ),
     sortingFn: (a, b) => {
       const order = { yes: 0, partial: 1, no: 2 };
-      return order[a.original.temporalAwareness] - order[b.original.temporalAwareness];
+      return (
+        order[a.original.temporalAwareness] -
+        order[b.original.temporalAwareness]
+      );
     },
   }),
   col.accessor("selfImproving", {
     header: "Self-improving",
     cell: (info) => (
-      <Badge value={info.getValue()} detail={info.row.original.selfImprovingDetail} />
+      <Badge
+        value={info.getValue()}
+        detail={info.row.original.selfImprovingDetail}
+      />
     ),
     sortingFn: (a, b) => {
       const order = { yes: 0, partial: 1, no: 2 };
@@ -78,7 +96,10 @@ export const userMemoryColumns = [
   col.accessor("multiTenant", {
     header: "Multi-tenant",
     cell: (info) => (
-      <Badge value={info.getValue()} detail={info.row.original.multiTenantDetail} />
+      <Badge
+        value={info.getValue()}
+        detail={info.row.original.multiTenantDetail}
+      />
     ),
     sortingFn: (a, b) => {
       const order = { yes: 0, partial: 1, no: 2 };
@@ -88,13 +109,19 @@ export const userMemoryColumns = [
   col.accessor("search", {
     header: "Search",
     cell: (info) => (
-      <ChipList items={info.getValue()} detail={info.row.original.searchDetail} />
+      <ChipList
+        items={info.getValue()}
+        detail={info.row.original.searchDetail}
+      />
     ),
   }),
   col.accessor("storage", {
     header: "Storage",
     cell: (info) => (
-      <ChipList items={info.getValue()} detail={info.row.original.storageDetail} />
+      <ChipList
+        items={info.getValue()}
+        detail={info.row.original.storageDetail}
+      />
     ),
   }),
   col.accessor("funding", {

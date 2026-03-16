@@ -14,7 +14,9 @@ export function renderDevTool(tool: DevTool): string {
     tool.repo ? `- **Repo:** ${tool.repo}` : null,
     tool.license ? `- **License:** ${tool.license}` : null,
     `- **Approach:** ${fmt(tool.approach)}`,
-    tool.approachDetail ? `- **Approach detail:** ${tool.approachDetail}` : null,
+    tool.approachDetail
+      ? `- **Approach detail:** ${tool.approachDetail}`
+      : null,
     `- **Search:** ${fmt(tool.search)}`,
     tool.searchDetail ? `- **Search detail:** ${tool.searchDetail}` : null,
     `- **Storage:** ${fmt(tool.storage)}`,
@@ -24,9 +26,7 @@ export function renderDevTool(tool: DevTool): string {
     `- **Scopes:** ${fmt(tool.scopes)}`,
     tool.scopesDetail ? `- **Scopes detail:** ${tool.scopesDetail}` : null,
     `- **Dedup:** ${fmt(tool.duplicateDetection)}`,
-    tool.duplicateDetail
-      ? `- **Dedup detail:** ${tool.duplicateDetail}`
-      : null,
+    tool.duplicateDetail ? `- **Dedup detail:** ${tool.duplicateDetail}` : null,
     `- **Retention:** ${fmt(tool.retention)}`,
     tool.retentionDetail
       ? `- **Retention detail:** ${tool.retentionDetail}`
@@ -108,9 +108,7 @@ export function renderUserMemory(platform: UserMemory): string {
       ? `- **Multi-tenant detail:** ${platform.multiTenantDetail}`
       : null,
     `- **Language:** ${fmt(platform.language)}`,
-    platform.githubStars
-      ? `- **GitHub stars:** ${platform.githubStars}`
-      : null,
+    platform.githubStars ? `- **GitHub stars:** ${platform.githubStars}` : null,
     platform.funding ? `- **Funding:** ${platform.funding}` : null,
     platform.pros ? `- **Pros:** ${platform.pros.join("; ")}` : null,
     platform.cons ? `- **Cons:** ${platform.cons.join("; ")}` : null,

@@ -1,5 +1,5 @@
 import { getUserMemory } from "@/lib/data";
-import { SITE_URL, renderUserMemory, markdownResponse } from "@/lib/llm-txt";
+import { markdownResponse, renderUserMemory, SITE_URL } from "@/lib/llm-txt";
 
 export async function GET() {
   const userMemory = getUserMemory();

@@ -1,7 +1,7 @@
 import { createColumnHelper } from "@tanstack/react-table";
-import type { DevTool } from "./types";
 import { Badge } from "@/components/badge";
 import { ChipList } from "@/components/chip-list";
+import type { DevTool } from "./types";
 
 const col = createColumnHelper<DevTool>();
 
@@ -28,19 +28,28 @@ export const devToolColumns = [
   col.accessor("approach", {
     header: "Approach",
     cell: (info) => (
-      <ChipList items={info.getValue()} detail={info.row.original.approachDetail} />
+      <ChipList
+        items={info.getValue()}
+        detail={info.row.original.approachDetail}
+      />
     ),
   }),
   col.accessor("search", {
     header: "Search",
     cell: (info) => (
-      <ChipList items={info.getValue()} detail={info.row.original.searchDetail} />
+      <ChipList
+        items={info.getValue()}
+        detail={info.row.original.searchDetail}
+      />
     ),
   }),
   col.accessor("storage", {
     header: "Storage",
     cell: (info) => (
-      <ChipList items={info.getValue()} detail={info.row.original.storageDetail} />
+      <ChipList
+        items={info.getValue()}
+        detail={info.row.original.storageDetail}
+      />
     ),
   }),
   col.accessor("mcpSupport", {
@@ -56,25 +65,37 @@ export const devToolColumns = [
   col.accessor("scopes", {
     header: "Scopes",
     cell: (info) => (
-      <ChipList items={info.getValue()} detail={info.row.original.scopesDetail} />
+      <ChipList
+        items={info.getValue()}
+        detail={info.row.original.scopesDetail}
+      />
     ),
   }),
   col.accessor("duplicateDetection", {
     header: "Dedup",
     cell: (info) => (
-      <ChipList items={info.getValue()} detail={info.row.original.duplicateDetail} />
+      <ChipList
+        items={info.getValue()}
+        detail={info.row.original.duplicateDetail}
+      />
     ),
   }),
   col.accessor("retention", {
     header: "Retention",
     cell: (info) => (
-      <ChipList items={info.getValue()} detail={info.row.original.retentionDetail} />
+      <ChipList
+        items={info.getValue()}
+        detail={info.row.original.retentionDetail}
+      />
     ),
   }),
   col.accessor("multiUser", {
     header: "Multi-user",
     cell: (info) => (
-      <Badge value={info.getValue()} detail={info.row.original.multiUserDetail} />
+      <Badge
+        value={info.getValue()}
+        detail={info.row.original.multiUserDetail}
+      />
     ),
     sortingFn: (a, b) => {
       const order = { yes: 0, partial: 1, no: 2 };
@@ -84,7 +105,10 @@ export const devToolColumns = [
   col.accessor("crossMachine", {
     header: "Cross-machine",
     cell: (info) => (
-      <Badge value={info.getValue()} detail={info.row.original.crossMachineDetail} />
+      <Badge
+        value={info.getValue()}
+        detail={info.row.original.crossMachineDetail}
+      />
     ),
     sortingFn: (a, b) => {
       const order = { yes: 0, partial: 1, no: 2 };
@@ -104,13 +128,19 @@ export const devToolColumns = [
   col.accessor("tokenBudgeting", {
     header: "Token Budget",
     cell: (info) => (
-      <ChipList items={info.getValue()} detail={info.row.original.tokenBudgetingDetail} />
+      <ChipList
+        items={info.getValue()}
+        detail={info.row.original.tokenBudgetingDetail}
+      />
     ),
   }),
   col.accessor("toolSupport", {
     header: "Tool Support",
     cell: (info) => (
-      <ChipList items={info.getValue()} detail={info.row.original.toolSupportDetail} />
+      <ChipList
+        items={info.getValue()}
+        detail={info.row.original.toolSupportDetail}
+      />
     ),
   }),
 ];

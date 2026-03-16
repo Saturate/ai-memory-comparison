@@ -1,7 +1,7 @@
 "use client";
 
-import { useState, useRef, useEffect } from "react";
 import type { Table } from "@tanstack/react-table";
+import { useEffect, useRef, useState } from "react";
 import type { MemorySystem } from "@/lib/types";
 
 interface TableToolbarProps<T extends MemorySystem> {
@@ -29,6 +29,7 @@ function ToolbarButton({
 }) {
   return (
     <button
+      type="button"
       onClick={onClick}
       className={`h-8 rounded-md border px-2.5 text-[12px] font-mono transition-colors ${
         active
@@ -113,8 +114,13 @@ export function TableToolbar<T extends MemorySystem>({
           viewBox="0 0 24 24"
           stroke="currentColor"
           strokeWidth={2}
+          aria-hidden="true"
         >
-          <path strokeLinecap="round" strokeLinejoin="round" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
+          <path
+            strokeLinecap="round"
+            strokeLinejoin="round"
+            d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"
+          />
         </svg>
         <input
           type="text"
@@ -166,6 +172,7 @@ export function TableToolbar<T extends MemorySystem>({
           <div className="absolute left-0 top-full mt-1 z-50 w-56 rounded-lg border border-border bg-popover p-1.5 shadow-xl max-h-72 overflow-y-auto">
             <div className="flex gap-2 mb-1 px-2 py-1">
               <button
+                type="button"
                 onClick={onSelectAllSystems}
                 className="text-[11px] font-mono text-primary hover:underline"
               >
@@ -173,6 +180,7 @@ export function TableToolbar<T extends MemorySystem>({
               </button>
               <span className="text-border">/</span>
               <button
+                type="button"
                 onClick={onDeselectAllSystems}
                 className="text-[11px] font-mono text-primary hover:underline"
               >
@@ -203,7 +211,8 @@ export function TableToolbar<T extends MemorySystem>({
           onClick={() => setShowCompare(!showCompare)}
           active={selectedForCompare.size > 0}
         >
-          Compare{selectedForCompare.size > 0 ? ` (${selectedForCompare.size})` : ""}
+          Compare
+          {selectedForCompare.size > 0 ? ` (${selectedForCompare.size})` : ""}
         </ToolbarButton>
         {showCompare && (
           <div className="absolute left-0 top-full mt-1 z-50 w-56 rounded-lg border border-border bg-popover p-1.5 shadow-xl max-h-72 overflow-y-auto">
@@ -241,9 +250,7 @@ export function TableToolbar<T extends MemorySystem>({
       </div>
 
       {/* Copy markdown */}
-      <ToolbarButton onClick={copyAsMarkdown}>
-        Copy MD
-      </ToolbarButton>
+      <ToolbarButton onClick={copyAsMarkdown}>Copy MD</ToolbarButton>
     </div>
   );
 }

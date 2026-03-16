@@ -1,4 +1,4 @@
-import type { DevTool, UserMemory, MemorySystem } from "@/lib/types";
+import type { DevTool, MemorySystem, UserMemory } from "@/lib/types";
 import { Badge } from "./badge";
 import { ChipList } from "./chip-list";
 
@@ -14,7 +14,13 @@ interface ComparisonCardsProps {
   systems: MemorySystem[];
 }
 
-function Field({ label, children }: { label: string; children: React.ReactNode }) {
+function Field({
+  label,
+  children,
+}: {
+  label: string;
+  children: React.ReactNode;
+}) {
   return (
     <div className="py-2.5 border-b border-border/60 last:border-0">
       <div className="text-[11px] font-mono uppercase tracking-wider text-muted-foreground mb-1">
@@ -69,22 +75,34 @@ function SystemCard({ system }: { system: MemorySystem }) {
             <ChipList items={system.scopes} detail={system.scopesDetail} />
           </Field>
           <Field label="Dedup">
-            <ChipList items={system.duplicateDetection} detail={system.duplicateDetail} />
+            <ChipList
+              items={system.duplicateDetection}
+              detail={system.duplicateDetail}
+            />
           </Field>
           <Field label="Retention">
-            <ChipList items={system.retention} detail={system.retentionDetail} />
+            <ChipList
+              items={system.retention}
+              detail={system.retentionDetail}
+            />
           </Field>
           <Field label="Multi-user">
             <Badge value={system.multiUser} detail={system.multiUserDetail} />
           </Field>
           <Field label="Cross-machine">
-            <Badge value={system.crossMachine} detail={system.crossMachineDetail} />
+            <Badge
+              value={system.crossMachine}
+              detail={system.crossMachineDetail}
+            />
           </Field>
           <Field label="Web UI">
             <Badge value={system.webUi} detail={system.webUiDetail} />
           </Field>
           <Field label="Token Budget">
-            <ChipList items={system.tokenBudgeting} detail={system.tokenBudgetingDetail} />
+            <ChipList
+              items={system.tokenBudgeting}
+              detail={system.tokenBudgetingDetail}
+            />
           </Field>
         </>
       )}
@@ -104,13 +122,22 @@ function SystemCard({ system }: { system: MemorySystem }) {
             <ChipList items={system.scopes} detail={system.scopesDetail} />
           </Field>
           <Field label="Temporal">
-            <Badge value={system.temporalAwareness} detail={system.temporalDetail} />
+            <Badge
+              value={system.temporalAwareness}
+              detail={system.temporalDetail}
+            />
           </Field>
           <Field label="Self-improving">
-            <Badge value={system.selfImproving} detail={system.selfImprovingDetail} />
+            <Badge
+              value={system.selfImproving}
+              detail={system.selfImprovingDetail}
+            />
           </Field>
           <Field label="Multi-tenant">
-            <Badge value={system.multiTenant} detail={system.multiTenantDetail} />
+            <Badge
+              value={system.multiTenant}
+              detail={system.multiTenantDetail}
+            />
           </Field>
           <Field label="Search">
             <ChipList items={system.search} detail={system.searchDetail} />

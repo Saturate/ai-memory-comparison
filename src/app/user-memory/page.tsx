@@ -18,7 +18,8 @@ export default function UserMemoryPage() {
           User Memory Platforms
         </h1>
         <p className="text-sm text-muted-foreground">
-          {data.length} memory platforms for AI agents and chatbots. Click any row for details.
+          {data.length} memory platforms for AI agents and chatbots. Click any
+          row for details.
         </p>
       </div>
       <Suspense>

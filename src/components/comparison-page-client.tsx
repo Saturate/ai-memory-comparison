@@ -1,24 +1,28 @@
 "use client";
 
-import { useState, useMemo, useCallback } from "react";
 import {
-  useReactTable,
-  getCoreRowModel,
-  getSortedRowModel,
-  getFilteredRowModel,
-  type SortingState,
-  type VisibilityState,
   type ColumnDef,
   type FilterFn,
+  getCoreRowModel,
+  getFilteredRowModel,
+  getSortedRowModel,
+  type SortingState,
+  useReactTable,
+  type VisibilityState,
 } from "@tanstack/react-table";
-import type { MemorySystem } from "@/lib/types";
+import { useCallback, useMemo, useState } from "react";
 import { useUrlState } from "@/hooks/use-url-state";
+import type { MemorySystem } from "@/lib/types";
 import { colsToVisibility } from "@/lib/url-state";
 import { ComparisonTable } from "./comparison-table";
-import { TableToolbar } from "./table-toolbar";
 import { SystemDetailDialog } from "./system-detail-dialog";
+import { TableToolbar } from "./table-toolbar";
 
-const globalFilterFn: FilterFn<MemorySystem> = (row, _columnId, filterValue: string) => {
+const globalFilterFn: FilterFn<MemorySystem> = (
+  row,
+  _columnId,
+  filterValue: string,
+) => {
   const search = filterValue.toLowerCase();
   const values = Object.values(row.original);
   return values.some((val) => {
@@ -29,46 +33,53 @@ const globalFilterFn: FilterFn<MemorySystem> = (row, _columnId, filterValue: str
   });
 };
 
-interface ComparisonPageClientProps<T extends MemorySystem> {
-  data: T[];
-  columns: ColumnDef<T, unknown>[];
+interface ComparisonPageClientProps {
+  data: MemorySystem[];
+  columns: ColumnDef<MemorySystem, unknown>[];
   category: string;
 }
 
-export function ComparisonPageClient<T extends MemorySystem>({
+export function ComparisonPageClient({
   data,
   columns,
   category,
-}: ComparisonPageClientProps<T>) {
+}: ComparisonPageClientProps) {
   const { state: urlState, setState: setUrlState } = useUrlState();
 
   const [sorting, setSorting] = useState<SortingState>(urlState.sort ?? []);
   const [globalFilter, setGlobalFilter] = useState(urlState.q ?? "");
-  const [selectedSystem, setSelectedSystem] = useState<T | null>(null);
+  const [selectedSystem, setSelectedSystem] = useState<MemorySystem | null>(
+    null,
+  );
 
   const allColumnIds = useMemo(
-    () => columns.map((c) => ("accessorKey" in c ? String(c.accessorKey) : c.id ?? "")),
-    [columns]
+    () =>
+      columns.map((c) =>
+        "accessorKey" in c ? String(c.accessorKey) : (c.id ?? ""),
+      ),
+    [columns],
   );
   const [columnVisibility, setColumnVisibility] = useState<VisibilityState>(
-    urlState.cols ? colsToVisibility(allColumnIds, urlState.cols) : {}
+    urlState.cols ? colsToVisibility(allColumnIds, urlState.cols) : {},
   );
 
   const allSlugs = useMemo(() => new Set(data.map((d) => d.slug)), [data]);
   const [visibleSlugs, setVisibleSlugs] = useState<Set<string>>(
-    urlState.systems ? new Set(urlState.systems) : allSlugs
+    urlState.systems ? new Set(urlState.systems) : allSlugs,
   );
 
-  const [selectedForCompare, setSelectedForCompare] = useState<Set<string>>(new Set());
+  const [selectedForCompare, setSelectedForCompare] = useState<Set<string>>(
+    new Set(),
+  );
 
   const filteredData = useMemo(
     () => data.filter((d) => visibleSlugs.has(d.slug)),
-    [data, visibleSlugs]
+    [data, visibleSlugs],
   );
 
   const table = useReactTable({
     data: filteredData,
-    columns: columns as ColumnDef<T, unknown>[],
+    columns,
     state: {
       sorting,
       columnVisibility,
@@ -100,7 +111,7 @@ export function ComparisonPageClient<T extends MemorySystem>({
       setGlobalFilter(value);
       setUrlState({ q: value || undefined });
     },
-    [setUrlState]
+    [setUrlState],
   );
 
   const toggleSystem = useCallback(
@@ -115,7 +126,7 @@ export function ComparisonPageClient<T extends MemorySystem>({
         return next;
       });
     },
-    [allSlugs.size, setUrlState]
+    [allSlugs.size, setUrlState],
   );
 
   const selectAllSystems = useCallback(() => {
@@ -152,10 +163,7 @@ export function ComparisonPageClient<T extends MemorySystem>({
         onToggleCompare={toggleCompare}
         category={category}
       />
-      <ComparisonTable
-        table={table}
-        onSelectSystem={setSelectedSystem}
-      />
+      <ComparisonTable table={table} onSelectSystem={setSelectedSystem} />
       <p className="text-[11px] text-muted-foreground font-mono mt-3">
         Click any row for details
       </p>

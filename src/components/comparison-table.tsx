@@ -1,11 +1,8 @@
 "use client";
 
-import {
-  flexRender,
-  type Table as TanStackTable,
-} from "@tanstack/react-table";
-import { cn } from "@/lib/utils";
+import { flexRender, type Table as TanStackTable } from "@tanstack/react-table";
 import type { MemorySystem } from "@/lib/types";
+import { cn } from "@/lib/utils";
 
 interface ComparisonTableProps<T extends MemorySystem> {
   table: TanStackTable<T>;
@@ -28,7 +25,7 @@ export function ComparisonTable<T extends MemorySystem>({
                   className={cn(
                     "px-3 py-2.5 text-left text-[11px] font-mono font-medium uppercase tracking-wider text-muted-foreground whitespace-nowrap bg-muted/40",
                     idx === 0 &&
-                      "sticky left-0 z-20 bg-muted/80 backdrop-blur-sm after:absolute after:right-0 after:top-0 after:bottom-0 after:w-px after:bg-border"
+                      "sticky left-0 z-20 bg-muted/80 backdrop-blur-sm after:absolute after:right-0 after:top-0 after:bottom-0 after:w-px after:bg-border",
                   )}
                   style={
                     header.column.getCanSort()
@@ -42,7 +39,7 @@ export function ComparisonTable<T extends MemorySystem>({
                       ? null
                       : flexRender(
                           header.column.columnDef.header,
-                          header.getContext()
+                          header.getContext(),
                         )}
                     {{
                       asc: " \u2191",
@@ -69,13 +66,10 @@ export function ComparisonTable<T extends MemorySystem>({
                     className={cn(
                       "px-3 py-2.5",
                       idx === 0 &&
-                        "sticky left-0 z-10 bg-card group-hover:bg-muted/20 transition-colors after:absolute after:right-0 after:top-0 after:bottom-0 after:w-px after:bg-border/60"
+                        "sticky left-0 z-10 bg-card group-hover:bg-muted/20 transition-colors after:absolute after:right-0 after:top-0 after:bottom-0 after:w-px after:bg-border/60",
                     )}
                   >
-                    {flexRender(
-                      cell.column.columnDef.cell,
-                      cell.getContext()
-                    )}
+                    {flexRender(cell.column.columnDef.cell, cell.getContext())}
                   </td>
                 ))}
               </tr>

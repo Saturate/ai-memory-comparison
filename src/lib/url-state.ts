@@ -61,7 +61,7 @@ export function serializeUrlState(state: TableUrlState): URLSearchParams {
 
 export function colsToVisibility(
   allColumnIds: string[],
-  visibleCols?: string[]
+  visibleCols?: string[],
 ): VisibilityState {
   if (!visibleCols) return {};
   const vis: VisibilityState = {};
@@ -69,6 +69,6 @@ export function colsToVisibility(
     vis[id] = visibleCols.includes(id);
   }
   // Name column always visible
-  vis["name"] = true;
+  vis.name = true;
   return vis;
 }

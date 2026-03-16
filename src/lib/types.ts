@@ -1,7 +1,6 @@
 import { z } from "zod/v4";
 
 const YesNoPartial = z.enum(["yes", "no", "partial"]);
-type YesNoPartial = z.infer<typeof YesNoPartial>;
 
 const Maturity = z.enum(["experimental", "alpha", "beta", "stable", "mature"]);
 

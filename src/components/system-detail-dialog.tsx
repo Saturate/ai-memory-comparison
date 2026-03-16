@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect, useRef } from "react";
-import type { DevTool, UserMemory, MemorySystem } from "@/lib/types";
+import type { DevTool, MemorySystem, UserMemory } from "@/lib/types";
 import { Badge } from "./badge";
 import { ChipList } from "./chip-list";
 
@@ -13,7 +13,13 @@ function isUserMemory(system: MemorySystem): system is UserMemory {
   return system.category === "user-memory";
 }
 
-function Field({ label, children }: { label: string; children: React.ReactNode }) {
+function Field({
+  label,
+  children,
+}: {
+  label: string;
+  children: React.ReactNode;
+}) {
   return (
     <div className="flex flex-col gap-1">
       <span className="text-[11px] font-mono uppercase tracking-wider text-muted-foreground">
@@ -29,7 +35,10 @@ interface SystemDetailDialogProps {
   onClose: () => void;
 }
 
-export function SystemDetailDialog({ system, onClose }: SystemDetailDialogProps) {
+export function SystemDetailDialog({
+  system,
+  onClose,
+}: SystemDetailDialogProps) {
   const overlayRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
@@ -49,6 +58,8 @@ export function SystemDetailDialog({ system, onClose }: SystemDetailDialogProps)
   if (!system) return null;
 
   return (
+    // biome-ignore lint/a11y/useKeyWithClickEvents: keyboard dismiss handled via Escape listener in useEffect
+    // biome-ignore lint/a11y/noStaticElementInteractions: backdrop dismiss pattern
     <div
       ref={overlayRef}
       className="dialog-overlay fixed inset-0 z-[100] flex items-start justify-center pt-[10vh] px-4"
@@ -56,7 +67,12 @@ export function SystemDetailDialog({ system, onClose }: SystemDetailDialogProps)
         if (e.target === overlayRef.current) onClose();
       }}
     >
-      <div className="absolute inset-0 bg-black/40 dark:bg-black/60 backdrop-blur-sm" onClick={onClose} />
+      {/* biome-ignore lint/a11y/useKeyWithClickEvents: keyboard dismiss handled via Escape listener in useEffect */}
+      {/* biome-ignore lint/a11y/noStaticElementInteractions: backdrop dismiss pattern */}
+      <div
+        className="absolute inset-0 bg-black/40 dark:bg-black/60 backdrop-blur-sm"
+        onClick={onClose}
+      />
       <div className="dialog-content relative w-full max-w-2xl max-h-[75vh] overflow-y-auto rounded-xl border border-border bg-card shadow-2xl">
         {/* Header */}
         <div className="sticky top-0 z-10 flex items-start justify-between border-b border-border bg-card/95 backdrop-blur-sm p-5">
@@ -78,21 +94,41 @@ export function SystemDetailDialog({ system, onClose }: SystemDetailDialogProps)
                   className="text-muted-foreground hover:text-foreground"
                   title="GitHub"
                 >
-                  <svg className="h-4 w-4" viewBox="0 0 24 24" fill="currentColor">
+                  <svg
+                    className="h-4 w-4"
+                    viewBox="0 0 24 24"
+                    fill="currentColor"
+                    aria-hidden="true"
+                  >
                     <path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z" />
                   </svg>
+                  <span className="sr-only">GitHub repository</span>
                 </a>
               )}
             </div>
-            <p className="text-sm text-muted-foreground">{system.description}</p>
+            <p className="text-sm text-muted-foreground">
+              {system.description}
+            </p>
           </div>
           <button
+            type="button"
             onClick={onClose}
             className="ml-4 shrink-0 rounded-md p-1.5 text-muted-foreground hover:text-foreground hover:bg-muted transition-colors"
             aria-label="Close"
           >
-            <svg className="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
-              <path strokeLinecap="round" strokeLinejoin="round" d="M6 18L18 6M6 6l12 12" />
+            <svg
+              className="h-4 w-4"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke="currentColor"
+              strokeWidth={2}
+              aria-hidden="true"
+            >
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                d="M6 18L18 6M6 6l12 12"
+              />
             </svg>
           </button>
         </div>
@@ -110,7 +146,10 @@ export function SystemDetailDialog({ system, onClose }: SystemDetailDialogProps)
               </Field>
             )}
             <Field label="Approach">
-              <ChipList items={system.approach} detail={system.approachDetail} />
+              <ChipList
+                items={system.approach}
+                detail={system.approachDetail}
+              />
             </Field>
           </div>
 
@@ -119,19 +158,31 @@ export function SystemDetailDialog({ system, onClose }: SystemDetailDialogProps)
             <>
               <div className="grid grid-cols-2 sm:grid-cols-3 gap-4">
                 <Field label="Search">
-                  <ChipList items={system.search} detail={system.searchDetail} />
+                  <ChipList
+                    items={system.search}
+                    detail={system.searchDetail}
+                  />
                 </Field>
                 <Field label="Storage">
-                  <ChipList items={system.storage} detail={system.storageDetail} />
+                  <ChipList
+                    items={system.storage}
+                    detail={system.storageDetail}
+                  />
                 </Field>
                 <Field label="MCP Support">
                   <Badge value={system.mcpSupport} detail={system.mcpDetail} />
                 </Field>
                 <Field label="Multi-user">
-                  <Badge value={system.multiUser} detail={system.multiUserDetail} />
+                  <Badge
+                    value={system.multiUser}
+                    detail={system.multiUserDetail}
+                  />
                 </Field>
                 <Field label="Cross-machine">
-                  <Badge value={system.crossMachine} detail={system.crossMachineDetail} />
+                  <Badge
+                    value={system.crossMachine}
+                    detail={system.crossMachineDetail}
+                  />
                 </Field>
                 <Field label="Web UI">
                   <Badge value={system.webUi} detail={system.webUiDetail} />
@@ -139,19 +190,34 @@ export function SystemDetailDialog({ system, onClose }: SystemDetailDialogProps)
               </div>
               <div className="grid grid-cols-2 sm:grid-cols-3 gap-4">
                 <Field label="Scopes">
-                  <ChipList items={system.scopes} detail={system.scopesDetail} />
+                  <ChipList
+                    items={system.scopes}
+                    detail={system.scopesDetail}
+                  />
                 </Field>
                 <Field label="Dedup">
-                  <ChipList items={system.duplicateDetection} detail={system.duplicateDetail} />
+                  <ChipList
+                    items={system.duplicateDetection}
+                    detail={system.duplicateDetail}
+                  />
                 </Field>
                 <Field label="Retention">
-                  <ChipList items={system.retention} detail={system.retentionDetail} />
+                  <ChipList
+                    items={system.retention}
+                    detail={system.retentionDetail}
+                  />
                 </Field>
                 <Field label="Token Budget">
-                  <ChipList items={system.tokenBudgeting} detail={system.tokenBudgetingDetail} />
+                  <ChipList
+                    items={system.tokenBudgeting}
+                    detail={system.tokenBudgetingDetail}
+                  />
                 </Field>
                 <Field label="Tool Support">
-                  <ChipList items={system.toolSupport} detail={system.toolSupportDetail} />
+                  <ChipList
+                    items={system.toolSupport}
+                    detail={system.toolSupportDetail}
+                  />
                 </Field>
               </div>
               {(system.maturity || system.setupComplexity) && (
@@ -176,7 +242,10 @@ export function SystemDetailDialog({ system, onClose }: SystemDetailDialogProps)
             <>
               <div className="grid grid-cols-2 sm:grid-cols-3 gap-4">
                 <Field label="Hosting">
-                  <ChipList items={system.hosting} detail={system.hostingDetail} />
+                  <ChipList
+                    items={system.hosting}
+                    detail={system.hostingDetail}
+                  />
                 </Field>
                 <Field label="Pricing">
                   <Badge value={system.pricing} detail={system.pricingDetail} />
@@ -185,31 +254,51 @@ export function SystemDetailDialog({ system, onClose }: SystemDetailDialogProps)
                   <ChipList items={system.sdks} detail={system.sdksDetail} />
                 </Field>
                 <Field label="Temporal">
-                  <Badge value={system.temporalAwareness} detail={system.temporalDetail} />
+                  <Badge
+                    value={system.temporalAwareness}
+                    detail={system.temporalDetail}
+                  />
                 </Field>
                 <Field label="Self-improving">
-                  <Badge value={system.selfImproving} detail={system.selfImprovingDetail} />
+                  <Badge
+                    value={system.selfImproving}
+                    detail={system.selfImprovingDetail}
+                  />
                 </Field>
                 <Field label="Multi-tenant">
-                  <Badge value={system.multiTenant} detail={system.multiTenantDetail} />
+                  <Badge
+                    value={system.multiTenant}
+                    detail={system.multiTenantDetail}
+                  />
                 </Field>
               </div>
               <div className="grid grid-cols-2 sm:grid-cols-3 gap-4">
                 <Field label="Search">
-                  <ChipList items={system.search} detail={system.searchDetail} />
+                  <ChipList
+                    items={system.search}
+                    detail={system.searchDetail}
+                  />
                 </Field>
                 <Field label="Storage">
-                  <ChipList items={system.storage} detail={system.storageDetail} />
+                  <ChipList
+                    items={system.storage}
+                    detail={system.storageDetail}
+                  />
                 </Field>
                 <Field label="Scopes">
-                  <ChipList items={system.scopes} detail={system.scopesDetail} />
+                  <ChipList
+                    items={system.scopes}
+                    detail={system.scopesDetail}
+                  />
                 </Field>
               </div>
               {(system.githubStars || system.funding) && (
                 <div className="flex gap-4">
                   {system.githubStars && (
                     <Field label="Stars">
-                      <span className="text-sm font-mono">{system.githubStars}</span>
+                      <span className="text-sm font-mono">
+                        {system.githubStars}
+                      </span>
                     </Field>
                   )}
                   {system.funding && (
@@ -233,8 +322,13 @@ export function SystemDetailDialog({ system, onClose }: SystemDetailDialogProps)
                   </span>
                   <ul className="space-y-1.5">
                     {system.pros.map((p) => (
-                      <li key={p} className="flex gap-2 text-sm text-muted-foreground">
-                        <span className="text-emerald-500 shrink-0 mt-0.5">+</span>
+                      <li
+                        key={p}
+                        className="flex gap-2 text-sm text-muted-foreground"
+                      >
+                        <span className="text-emerald-500 shrink-0 mt-0.5">
+                          +
+                        </span>
                         {p}
                       </li>
                     ))}
@@ -248,7 +342,10 @@ export function SystemDetailDialog({ system, onClose }: SystemDetailDialogProps)
                   </span>
                   <ul className="space-y-1.5">
                     {system.cons.map((c) => (
-                      <li key={c} className="flex gap-2 text-sm text-muted-foreground">
+                      <li
+                        key={c}
+                        className="flex gap-2 text-sm text-muted-foreground"
+                      >
                         <span className="text-red-400 shrink-0 mt-0.5">-</span>
                         {c}
                       </li>

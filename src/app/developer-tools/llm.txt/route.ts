@@ -1,5 +1,5 @@
 import { getDevTools } from "@/lib/data";
-import { SITE_URL, renderDevTool, markdownResponse } from "@/lib/llm-txt";
+import { markdownResponse, renderDevTool, SITE_URL } from "@/lib/llm-txt";
 
 export async function GET() {
   const devTools = getDevTools();
