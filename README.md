@@ -11,11 +11,11 @@ Each memory system is a JSON file in the `data/` directory:
 
 ```
 data/
-├── developer-tools/    # 16 systems
+├── developer-tools/
 │   ├── husk.json
 │   ├── claude-mem.json
 │   └── ...
-└── user-memory/        # 4 platforms
+└── user-memory/
     ├── mem0.json
     ├── zep.json
     └── ...
