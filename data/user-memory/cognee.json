@@ -3,8 +3,10 @@
   "slug": "cognee",
   "name": "Cognee",
   "description": "Knowledge engine with ECL pipeline (Extract, Cognify, Load). Self-improving memory that prunes stale nodes and reweights edges.",
+  "tagline": "Knowledge graph platform for AI applications",
   "url": "https://www.cognee.ai",
   "repo": "https://github.com/topoteretes/cognee",
+  "purl": "pkg:pypi/cognee",
   "license": "Apache-2.0",
   "language": ["Python"],
   "approach": ["knowledge graph", "vector"],
@@ -28,7 +30,6 @@
   "searchDetail": null,
   "storage": ["PostgreSQL", "Neo4j", "cloud"],
   "storageDetail": null,
-  "githubStars": "12.9k",
   "funding": "Venture-backed",
   "pros": [
     "Self-improving memory",

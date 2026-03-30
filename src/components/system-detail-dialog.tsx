@@ -1,7 +1,13 @@
 "use client";
 
 import { useEffect, useRef } from "react";
-import type { DevTool, MemorySystem, UserMemory } from "@/lib/types";
+import { formatStars } from "@/lib/format";
+import type {
+  DevTool,
+  EnrichedSystem,
+  MemorySystem,
+  UserMemory,
+} from "@/lib/types";
 import { Badge } from "./badge";
 import { ChipList } from "./chip-list";
 
@@ -106,6 +112,11 @@ export function SystemDetailDialog({
                 </a>
               )}
             </div>
+            {system.tagline && (
+              <p className="text-xs font-medium text-primary/70 mb-1">
+                {system.tagline}
+              </p>
+            )}
             <p className="text-sm text-muted-foreground">
               {system.description}
             </p>
@@ -219,6 +230,24 @@ export function SystemDetailDialog({
                     detail={system.toolSupportDetail}
                   />
                 </Field>
+                <Field label="Context Injection">
+                  <Badge
+                    value={system.contextInjection}
+                    detail={system.contextInjectionDetail}
+                  />
+                </Field>
+                <Field label="Network Required">
+                  <Badge
+                    value={system.networkRequired}
+                    detail={system.networkDetail}
+                  />
+                </Field>
+                <Field label="Audit Trail">
+                  <Badge
+                    value={system.auditTrail}
+                    detail={system.auditTrailDetail}
+                  />
+                </Field>
               </div>
               {(system.maturity || system.setupComplexity) && (
                 <div className="flex gap-4">
@@ -292,15 +321,21 @@ export function SystemDetailDialog({
                   />
                 </Field>
               </div>
-              {(system.githubStars || system.funding) && (
+              {((system as EnrichedSystem).enrichment?.githubStars !==
+                undefined ||
+                system.funding) && (
                 <div className="flex gap-4">
-                  {system.githubStars && (
-                    <Field label="Stars">
-                      <span className="text-sm font-mono">
-                        {system.githubStars}
-                      </span>
-                    </Field>
-                  )}
+                  {(() => {
+                    const stars = (system as EnrichedSystem).enrichment
+                      ?.githubStars;
+                    return stars != null ? (
+                      <Field label="Stars">
+                        <span className="text-sm font-mono">
+                          {formatStars(stars)}
+                        </span>
+                      </Field>
+                    ) : null;
+                  })()}
                   {system.funding && (
                     <Field label="Funding">
                       <span className="text-sm">{system.funding}</span>

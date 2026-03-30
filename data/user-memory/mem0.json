@@ -3,8 +3,10 @@
   "slug": "mem0",
   "name": "Mem0",
   "description": "Memory API for AI apps. User/session/agent scopes for personalizing chatbots and agents.",
+  "tagline": "Memory layer for personalized AI",
   "url": "https://mem0.ai",
   "repo": "https://github.com/mem0ai/mem0",
+  "purl": "pkg:pypi/mem0ai",
   "license": "Apache-2.0",
   "language": ["Python", "TypeScript"],
   "approach": ["vector", "graph"],
@@ -28,7 +30,6 @@
   "searchDetail": null,
   "storage": ["cloud", "self-hosted"],
   "storageDetail": null,
-  "githubStars": "48.5k",
   "funding": "$24M Series A",
   "pros": [
     "Massive community (48.5k stars)",

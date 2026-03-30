@@ -3,8 +3,10 @@
   "slug": "letta",
   "name": "Letta",
   "description": "Stateful agent platform (formerly MemGPT). Agents self-manage their own memory using an OS-inspired hierarchy: core memory (RAM) vs archival memory (disk).",
+  "tagline": "Stateful agent framework with memory tiers",
   "url": "https://www.letta.com",
   "repo": "https://github.com/letta-ai/letta",
+  "purl": "pkg:pypi/letta",
   "license": "Apache-2.0",
   "language": ["Python"],
   "approach": ["OS-style memory tiers"],
@@ -28,7 +30,6 @@
   "searchDetail": null,
   "storage": ["PostgreSQL", "cloud"],
   "storageDetail": null,
-  "githubStars": "20.3k",
   "funding": "Venture-backed",
   "pros": [
     "Unique OS-inspired memory model",

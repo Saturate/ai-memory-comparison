@@ -3,6 +3,7 @@
   "slug": "claude-code-auto-memory",
   "name": "Claude Code Auto Memory",
   "description": "Claude Code's built-in memory system. Writes notes to ~/.claude/projects/*/memory/MEMORY.md as it works. Plain markdown, machine-local.",
+  "tagline": "Built-in file-based memory for Claude Code",
   "url": "https://docs.anthropic.com/en/docs/claude-code",
   "language": ["Proprietary"],
   "approach": ["file-based"],
@@ -19,6 +20,10 @@
   "crossMachineDetail": "Stored in ~/.claude/projects/, machine-local",
   "webUi": "no",
   "tokenBudgeting": ["none"],
+  "contextInjection": "file-based",
+  "contextInjectionDetail": "Claude Code reads MEMORY.md index files from ~/.claude/projects/*/memory/ at session start",
+  "networkRequired": "no",
+  "auditTrail": "no",
   "maturity": "stable",
   "pros": ["Zero setup", "Automatic", "Part of Claude Code"],
   "cons": ["No search", "No sync", "No scoping beyond project", "Plain markdown only"]

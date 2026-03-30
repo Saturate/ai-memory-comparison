@@ -1,6 +1,8 @@
 import { createColumnHelper } from "@tanstack/react-table";
 import { Badge } from "@/components/badge";
 import { ChipList } from "@/components/chip-list";
+import { StarsCell } from "@/components/stars-cell";
+import { SystemNameCell } from "@/components/system-name-cell";
 import { arrayFilterFn, scalarFilterFn } from "./filter-fns";
 import type { DevTool } from "./types";
 
@@ -9,22 +11,14 @@ const col = createColumnHelper<DevTool>();
 export const devToolColumns = [
   col.accessor("name", {
     header: "System",
-    cell: (info) => {
-      const row = info.row.original;
-      return (
-        <div className="min-w-[140px]">
-          <span className="font-semibold text-foreground">
-            {info.getValue()}
-          </span>
-          {row.language.length > 0 && (
-            <div className="text-[11px] font-mono text-muted-foreground mt-0.5">
-              {row.language.join(", ")}
-            </div>
-          )}
-        </div>
-      );
-    },
+    cell: (info) => <SystemNameCell row={info.row.original} />,
     enableHiding: false,
+    enableColumnFilter: false,
+  }),
+  col.display({
+    id: "stars",
+    header: "Stars",
+    cell: (info) => <StarsCell row={info.row.original} />,
     enableColumnFilter: false,
   }),
   col.accessor("approach", {
@@ -156,5 +150,43 @@ export const devToolColumns = [
       />
     ),
     filterFn: arrayFilterFn,
+  }),
+  col.accessor("contextInjection", {
+    header: "Context Injection",
+    cell: (info) => (
+      <Badge
+        value={info.getValue()}
+        detail={info.row.original.contextInjectionDetail}
+      />
+    ),
+    filterFn: scalarFilterFn,
+  }),
+  col.accessor("networkRequired", {
+    header: "Network",
+    cell: (info) => (
+      <Badge
+        value={info.getValue()}
+        detail={info.row.original.networkDetail}
+      />
+    ),
+    filterFn: scalarFilterFn,
+    sortingFn: (a, b) => {
+      const order = { yes: 0, partial: 1, no: 2 };
+      return order[a.original.networkRequired] - order[b.original.networkRequired];
+    },
+  }),
+  col.accessor("auditTrail", {
+    header: "Audit Trail",
+    cell: (info) => (
+      <Badge
+        value={info.getValue()}
+        detail={info.row.original.auditTrailDetail}
+      />
+    ),
+    filterFn: scalarFilterFn,
+    sortingFn: (a, b) => {
+      const order = { yes: 0, partial: 1, no: 2 };
+      return order[a.original.auditTrail] - order[b.original.auditTrail];
+    },
   }),
 ];

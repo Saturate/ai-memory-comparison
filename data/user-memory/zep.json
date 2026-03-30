@@ -3,8 +3,10 @@
   "slug": "zep",
   "name": "Zep",
   "description": "Enterprise context platform. Temporal knowledge graphs that track how customer preferences evolve over time. Graphiti engine is open source.",
+  "tagline": "Memory and knowledge engine for assistants",
   "url": "https://www.getzep.com",
   "repo": "https://github.com/getzep/graphiti",
+  "purl": "pkg:pypi/graphiti-core",
   "license": "Apache-2.0",
   "language": ["Python", "TypeScript"],
   "approach": ["temporal knowledge graph"],
@@ -28,7 +30,6 @@
   "searchDetail": null,
   "storage": ["cloud", "Neo4j"],
   "storageDetail": null,
-  "githubStars": "23.2k",
   "funding": "Venture-backed",
   "pros": [
     "Best-in-class temporal awareness",

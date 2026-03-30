@@ -11,6 +11,9 @@
     "description": {
       "type": "string"
     },
+    "tagline": {
+      "type": "string"
+    },
     "url": {
       "type": "string",
       "format": "uri"
@@ -18,6 +21,9 @@
     "repo": {
       "type": "string",
       "format": "uri"
+    },
+    "purl": {
+      "type": "string"
     },
     "license": {
       "type": "string"
@@ -151,6 +157,39 @@
     "tokenBudgetingDetail": {
       "type": "string"
     },
+    "contextInjection": {
+      "type": "string",
+      "enum": [
+        "auto",
+        "manual",
+        "file-based"
+      ]
+    },
+    "contextInjectionDetail": {
+      "type": "string"
+    },
+    "networkRequired": {
+      "type": "string",
+      "enum": [
+        "yes",
+        "no",
+        "partial"
+      ]
+    },
+    "networkDetail": {
+      "type": "string"
+    },
+    "auditTrail": {
+      "type": "string",
+      "enum": [
+        "yes",
+        "no",
+        "partial"
+      ]
+    },
+    "auditTrailDetail": {
+      "type": "string"
+    },
     "setupComplexity": {
       "type": "string",
       "enum": [
@@ -200,7 +239,10 @@
     "multiUser",
     "crossMachine",
     "webUi",
-    "tokenBudgeting"
+    "tokenBudgeting",
+    "contextInjection",
+    "networkRequired",
+    "auditTrail"
   ],
   "additionalProperties": false,
   "$id": "https://github.com/Saturate/ai-memory-comparison/schemas/developer-tool.schema.json",
