@@ -1,5 +1,6 @@
 import { connection } from "next/server";
 import { getDevTools } from "@/lib/data";
+import { fetchAllEnrichments } from "@/lib/enrichments";
 import { DevToolsTableClient } from "./client";
 
 export const metadata = {
@@ -11,6 +12,7 @@ export const metadata = {
 export default async function DevToolsPage() {
   await connection();
   const data = getDevTools();
+  const enrichments = await fetchAllEnrichments(data);
 
   return (
     <div className="px-4 sm:px-6 py-8">
@@ -23,7 +25,9 @@ export default async function DevToolsPage() {
           for details.
         </p>
       </div>
-      <DevToolsTableClient data={data} />
+      <DevToolsTableClient
+        data={data.map((d) => ({ ...d, enrichment: enrichments[d.slug] }))}
+      />
     </div>
   );
 }

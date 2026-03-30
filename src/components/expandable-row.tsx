@@ -1,4 +1,5 @@
-import type { DevTool, MemorySystem } from "@/lib/types";
+import { formatStars } from "@/lib/format";
+import type { DevTool, EnrichedSystem, MemorySystem } from "@/lib/types";
 import { Badge } from "./badge";
 import { ChipList } from "./chip-list";
 
@@ -69,12 +70,15 @@ export function ExpandableRow({ system }: ExpandableRowProps) {
               <p className="text-muted-foreground">{system.funding}</p>
             </div>
           )}
-          {system.githubStars && (
-            <div>
-              <h4 className="font-medium mb-1">GitHub Stars</h4>
-              <p className="text-muted-foreground">{system.githubStars}</p>
-            </div>
-          )}
+          {(() => {
+            const stars = (system as EnrichedSystem).enrichment?.githubStars;
+            return stars != null ? (
+              <div>
+                <h4 className="font-medium mb-1">GitHub Stars</h4>
+                <p className="text-muted-foreground">{formatStars(stars)}</p>
+              </div>
+            ) : null;
+          })()}
         </>
       )}
 

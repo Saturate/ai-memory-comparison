@@ -1,14 +1,14 @@
 "use client";
 
 import { flexRender, type Table as TanStackTable } from "@tanstack/react-table";
-import type { MemorySystem } from "@/lib/types";
+import type { EnrichedSystem } from "@/lib/types";
 import { cn } from "@/lib/utils";
 import { ColumnFilter } from "./column-filter";
 
 interface ComparisonTableProps {
-  table: TanStackTable<MemorySystem>;
-  onSelectSystem: (system: MemorySystem) => void;
-  allData: MemorySystem[];
+  table: TanStackTable<EnrichedSystem>;
+  onSelectSystem: (system: EnrichedSystem) => void;
+  allData: EnrichedSystem[];
 }
 
 export function ComparisonTable({

@@ -1,6 +1,8 @@
 import { createColumnHelper } from "@tanstack/react-table";
 import { Badge } from "@/components/badge";
 import { ChipList } from "@/components/chip-list";
+import { StarsCell } from "@/components/stars-cell";
+import { SystemNameCell } from "@/components/system-name-cell";
 import { arrayFilterFn, scalarFilterFn } from "./filter-fns";
 import type { UserMemory } from "./types";
 
@@ -9,22 +11,14 @@ const col = createColumnHelper<UserMemory>();
 export const userMemoryColumns = [
   col.accessor("name", {
     header: "Platform",
-    cell: (info) => {
-      const row = info.row.original;
-      return (
-        <div className="min-w-[140px]">
-          <span className="font-semibold text-foreground">
-            {info.getValue()}
-          </span>
-          {row.githubStars && (
-            <div className="text-[11px] font-mono text-muted-foreground mt-0.5">
-              {row.githubStars} stars
-            </div>
-          )}
-        </div>
-      );
-    },
+    cell: (info) => <SystemNameCell row={info.row.original} />,
     enableHiding: false,
+    enableColumnFilter: false,
+  }),
+  col.display({
+    id: "stars",
+    header: "Stars",
+    cell: (info) => <StarsCell row={info.row.original} />,
     enableColumnFilter: false,
   }),
   col.accessor("approach", {

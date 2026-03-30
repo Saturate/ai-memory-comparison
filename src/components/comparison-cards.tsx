@@ -1,4 +1,10 @@
-import type { DevTool, MemorySystem, UserMemory } from "@/lib/types";
+import { formatStars } from "@/lib/format";
+import type {
+  DevTool,
+  EnrichedSystem,
+  MemorySystem,
+  UserMemory,
+} from "@/lib/types";
 import { Badge } from "./badge";
 import { ChipList } from "./chip-list";
 
@@ -48,6 +54,14 @@ function SystemCard({ system }: { system: MemorySystem }) {
         </p>
       </div>
 
+      {(() => {
+        const stars = (system as EnrichedSystem).enrichment?.githubStars;
+        return stars != null ? (
+          <Field label="Stars">
+            <span className="text-sm font-mono">★ {formatStars(stars)}</span>
+          </Field>
+        ) : null;
+      })()}
       <Field label="Approach">
         <ChipList items={system.approach} detail={system.approachDetail} />
       </Field>

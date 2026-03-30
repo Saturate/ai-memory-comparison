@@ -108,7 +108,6 @@ export function renderUserMemory(platform: UserMemory): string {
       ? `- **Multi-tenant detail:** ${platform.multiTenantDetail}`
       : null,
     `- **Language:** ${fmt(platform.language)}`,
-    platform.githubStars ? `- **GitHub stars:** ${platform.githubStars}` : null,
     platform.funding ? `- **Funding:** ${platform.funding}` : null,
     platform.pros ? `- **Pros:** ${platform.pros.join("; ")}` : null,
     platform.cons ? `- **Cons:** ${platform.cons.join("; ")}` : null,

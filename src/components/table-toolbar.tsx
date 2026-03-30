@@ -2,9 +2,9 @@
 
 import type { Table } from "@tanstack/react-table";
 import { useEffect, useRef, useState } from "react";
-import type { MemorySystem } from "@/lib/types";
+import type { EnrichedSystem } from "@/lib/types";
 
-interface TableToolbarProps<T extends MemorySystem> {
+interface TableToolbarProps<T extends EnrichedSystem> {
   table: Table<T>;
   globalFilter: string;
   onGlobalFilterChange: (value: string) => void;
@@ -46,7 +46,7 @@ function ToolbarButton({
   );
 }
 
-export function TableToolbar<T extends MemorySystem>({
+export function TableToolbar<T extends EnrichedSystem>({
   table,
   globalFilter,
   onGlobalFilterChange,

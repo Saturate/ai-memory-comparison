@@ -2,11 +2,11 @@
 
 import type { Column } from "@tanstack/react-table";
 import { useEffect, useRef, useState } from "react";
-import type { MemorySystem } from "@/lib/types";
+import type { EnrichedSystem } from "@/lib/types";
 
 interface ColumnFilterProps {
-  column: Column<MemorySystem, unknown>;
-  allData: MemorySystem[];
+  column: Column<EnrichedSystem, unknown>;
+  allData: EnrichedSystem[];
 }
 
 export function ColumnFilter({ column, allData }: ColumnFilterProps) {

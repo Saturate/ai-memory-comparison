@@ -14,7 +14,7 @@ import {
 import { useCallback, useMemo, useState } from "react";
 import { useUrlState } from "@/hooks/use-url-state";
 import { ColorProvider } from "@/lib/color-context";
-import type { MemorySystem } from "@/lib/types";
+import type { EnrichedSystem } from "@/lib/types";
 import {
   colsToVisibility,
   columnFiltersToRecord,
@@ -24,7 +24,7 @@ import { ComparisonTable } from "./comparison-table";
 import { SystemDetailDialog } from "./system-detail-dialog";
 import { TableToolbar } from "./table-toolbar";
 
-const globalFilterFn: FilterFn<MemorySystem> = (
+const globalFilterFn: FilterFn<EnrichedSystem> = (
   row,
   _columnId,
   filterValue: string,
@@ -40,8 +40,8 @@ const globalFilterFn: FilterFn<MemorySystem> = (
 };
 
 interface ComparisonPageClientProps {
-  data: MemorySystem[];
-  columns: ColumnDef<MemorySystem, unknown>[];
+  data: EnrichedSystem[];
+  columns: ColumnDef<EnrichedSystem, unknown>[];
   category: string;
 }
 
@@ -58,7 +58,7 @@ export function ComparisonPageClient({
   const [columnFilters, setColumnFilters] = useState<ColumnFiltersState>(
     filtersToColumnFilters(urlState.filters),
   );
-  const [selectedSystem, setSelectedSystem] = useState<MemorySystem | null>(
+  const [selectedSystem, setSelectedSystem] = useState<EnrichedSystem | null>(
     null,
   );
 

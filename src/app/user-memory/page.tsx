@@ -1,5 +1,6 @@
 import { connection } from "next/server";
 import { getUserMemory } from "@/lib/data";
+import { fetchAllEnrichments } from "@/lib/enrichments";
 import { UserMemoryTableClient } from "./client";
 
 export const metadata = {
@@ -11,6 +12,7 @@ export const metadata = {
 export default async function UserMemoryPage() {
   await connection();
   const data = getUserMemory();
+  const enrichments = await fetchAllEnrichments(data);
 
   return (
     <div className="px-4 sm:px-6 py-8">
@@ -23,7 +25,9 @@ export default async function UserMemoryPage() {
           row for details.
         </p>
       </div>
-      <UserMemoryTableClient data={data} />
+      <UserMemoryTableClient
+        data={data.map((d) => ({ ...d, enrichment: enrichments[d.slug] }))}
+      />
     </div>
   );
 }

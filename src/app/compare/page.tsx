@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { ComparisonCards } from "@/components/comparison-cards";
 import { getAllSystems } from "@/lib/data";
+import { fetchAllEnrichments } from "@/lib/enrichments";
 
 export const metadata = {
   title: "Compare — AI Memory Comparison",
@@ -56,6 +57,12 @@ export default async function ComparePage({ searchParams }: ComparePageProps) {
     );
   }
 
+  const enrichments = await fetchAllEnrichments(selected);
+  const enriched = selected.map((s) => ({
+    ...s,
+    enrichment: enrichments[s.slug],
+  }));
+
   const backHref =
     params.category === "user-memory" ? "/user-memory" : "/developer-tools";
 
@@ -73,7 +80,7 @@ export default async function ComparePage({ searchParams }: ComparePageProps) {
           {selected.map((s) => s.name).join(" vs ")}
         </h1>
       </div>
-      <ComparisonCards systems={selected} />
+      <ComparisonCards systems={enriched} />
     </div>
   );
 }
