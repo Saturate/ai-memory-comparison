@@ -37,8 +37,5 @@
     "Large community",
     "Formerly MemGPT"
   ],
-  "cons": [
-    "Python-centric",
-    "Complex memory model to understand"
-  ]
+  "cons": ["Python-centric", "Complex memory model to understand"]
 }

@@ -37,6 +37,11 @@
   "auditTrailDetail": "Version history with supersession chains; retention zones track lifecycle (active → archived → purged)",
   "setupComplexity": "medium",
   "maturity": "alpha",
-  "pros": ["Rich 4-tier search", "Knowledge type classification", "Retention zones with decay", "Graph expansion"],
+  "pros": [
+    "Rich 4-tier search",
+    "Knowledge type classification",
+    "Retention zones with decay",
+    "Graph expansion"
+  ],
   "cons": ["Local-only", "Complex setup", "No multi-user"]
 }

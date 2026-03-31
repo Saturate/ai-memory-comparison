@@ -29,6 +29,10 @@
   "auditTrailDetail": "Diary entries are append-based with timestamps, giving chronological history but no formal versioning",
   "setupComplexity": "low",
   "maturity": "stable",
-  "pros": ["Zero dependencies", "Dead simple setup", "Works with any tool that reads files"],
+  "pros": [
+    "Zero dependencies",
+    "Dead simple setup",
+    "Works with any tool that reads files"
+  ],
   "cons": ["No search", "No dedup", "Doesn't scale", "No scoping"]
 }

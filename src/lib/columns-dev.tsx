@@ -164,15 +164,14 @@ export const devToolColumns = [
   col.accessor("networkRequired", {
     header: "Network",
     cell: (info) => (
-      <Badge
-        value={info.getValue()}
-        detail={info.row.original.networkDetail}
-      />
+      <Badge value={info.getValue()} detail={info.row.original.networkDetail} />
     ),
     filterFn: scalarFilterFn,
     sortingFn: (a, b) => {
       const order = { yes: 0, partial: 1, no: 2 };
-      return order[a.original.networkRequired] - order[b.original.networkRequired];
+      return (
+        order[a.original.networkRequired] - order[b.original.networkRequired]
+      );
     },
   }),
   col.accessor("auditTrail", {

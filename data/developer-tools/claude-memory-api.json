@@ -27,6 +27,14 @@
   "networkDetail": "Requires Claude API calls; storage backend is bring-your-own",
   "auditTrail": "no",
   "maturity": "beta",
-  "pros": ["Full control over storage", "Works with any backend", "Native Claude integration"],
-  "cons": ["You must implement storage", "No built-in search/dedup/retention", "API-only"]
+  "pros": [
+    "Full control over storage",
+    "Works with any backend",
+    "Native Claude integration"
+  ],
+  "cons": [
+    "You must implement storage",
+    "No built-in search/dedup/retention",
+    "API-only"
+  ]
 }

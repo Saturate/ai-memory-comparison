@@ -32,6 +32,10 @@
   "auditTrail": "no",
   "setupComplexity": "low",
   "maturity": "alpha",
-  "pros": ["AI-powered memory compression", "Simple setup", "Progressive context disclosure"],
+  "pros": [
+    "AI-powered memory compression",
+    "Simple setup",
+    "Progressive context disclosure"
+  ],
   "cons": ["Local-only", "No multi-user", "No retention/TTL"]
 }

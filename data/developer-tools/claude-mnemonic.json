@@ -37,6 +37,11 @@
   "auditTrailDetail": "Memories can be superseded creating chains; importance scores decay over time",
   "setupComplexity": "low",
   "maturity": "beta",
-  "pros": ["Advanced reranking for precision", "Conflict detection", "Importance decay scoring", "Auto-classification"],
+  "pros": [
+    "Advanced reranking for precision",
+    "Conflict detection",
+    "Importance decay scoring",
+    "Auto-classification"
+  ],
   "cons": ["Local-only", "No multi-user"]
 }

@@ -31,6 +31,10 @@
   "auditTrailDetail": "Content-addressed SHA-256 hashing means old content is never overwritten (immutable blocks)",
   "setupComplexity": "medium",
   "maturity": "alpha",
-  "pros": ["Efficient content-addressed storage", "Block-level dedup", "FTS5 search"],
+  "pros": [
+    "Efficient content-addressed storage",
+    "Block-level dedup",
+    "FTS5 search"
+  ],
   "cons": ["Not designed for discrete memories", "Local-only", "No retention"]
 }

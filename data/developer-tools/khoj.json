@@ -28,6 +28,11 @@
   "auditTrail": "no",
   "setupComplexity": "medium",
   "maturity": "stable",
-  "pros": ["Multi-platform (web, desktop, mobile)", "Cloud sync", "Multi-user", "Self-hosted option"],
+  "pros": [
+    "Multi-platform (web, desktop, mobile)",
+    "Cloud sync",
+    "Multi-user",
+    "Self-hosted option"
+  ],
   "cons": ["No token budgeting", "No dedup", "No retention/TTL"]
 }

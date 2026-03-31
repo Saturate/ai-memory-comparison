@@ -17,7 +17,14 @@
   "storageDetail": "SQLite-vec for vectors, optional Cloudflare Workers + Vectorize for cloud sync",
   "mcpSupport": "yes",
   "mcpDetail": "MCP server + REST API, works with Claude Desktop, Claude Code, LangGraph, CrewAI, AutoGen",
-  "toolSupport": ["Claude Code", "Claude Desktop", "LangGraph", "CrewAI", "AutoGen", "Any MCP client"],
+  "toolSupport": [
+    "Claude Code",
+    "Claude Desktop",
+    "LangGraph",
+    "CrewAI",
+    "AutoGen",
+    "Any MCP client"
+  ],
   "scopes": ["per-agent"],
   "scopesDetail": "Automatic agent-ID tagging via X-Agent-ID header for per-agent memory scoping",
   "duplicateDetection": ["semantic", "consolidation"],
@@ -37,6 +44,12 @@
   "auditTrail": "no",
   "setupComplexity": "medium",
   "maturity": "beta",
-  "pros": ["Hybrid search approach", "Knowledge graph with typed relations", "Optional cloud sync", "Rich dashboard", "Wide tool support"],
+  "pros": [
+    "Hybrid search approach",
+    "Knowledge graph with typed relations",
+    "Optional cloud sync",
+    "Rich dashboard",
+    "Wide tool support"
+  ],
   "cons": ["Complex setup with optional cloud", "Token budgeting not supported"]
 }
