@@ -38,6 +38,18 @@
   "auditTrailDetail": "Session observations table tracks every user prompt, tool use, and file modification with timestamps",
   "setupComplexity": "low",
   "maturity": "beta",
-  "pros": ["Cross-machine by default", "Multi-user with API keys", "Scoped retention with TTL", "Token-budgeted retrieval", "Semantic dedup", "Knowledge graph with edge types", "Session compression with multiple LLM providers", "Zero-dependency path (sqlite-vec + transformers)"],
-  "cons": ["Runs as a local server process (lightweight with sqlite-vec, heavier with Qdrant)", "Neo4j graph backend is stub-only (SQLite graph works)"]
+  "pros": [
+    "Cross-machine by default",
+    "Multi-user with API keys",
+    "Scoped retention with TTL",
+    "Token-budgeted retrieval",
+    "Semantic dedup",
+    "Knowledge graph with edge types",
+    "Session compression with multiple LLM providers",
+    "Zero-dependency path (sqlite-vec + transformers)"
+  ],
+  "cons": [
+    "Runs as a local server process (lightweight with sqlite-vec, heavier with Qdrant)",
+    "Neo4j graph backend is stub-only (SQLite graph works)"
+  ]
 }

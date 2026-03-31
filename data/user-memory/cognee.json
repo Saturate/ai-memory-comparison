@@ -36,8 +36,5 @@
     "ECL pipeline for structured ingestion",
     "Flexible storage backends"
   ],
-  "cons": [
-    "Smaller community than alternatives",
-    "Python-only SDK"
-  ]
+  "cons": ["Smaller community than alternatives", "Python-only SDK"]
 }

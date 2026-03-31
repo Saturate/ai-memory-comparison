@@ -26,5 +26,10 @@
   "auditTrail": "no",
   "maturity": "stable",
   "pros": ["Zero setup", "Automatic", "Part of Claude Code"],
-  "cons": ["No search", "No sync", "No scoping beyond project", "Plain markdown only"]
+  "cons": [
+    "No search",
+    "No sync",
+    "No scoping beyond project",
+    "Plain markdown only"
+  ]
 }

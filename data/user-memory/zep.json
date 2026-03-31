@@ -37,8 +37,5 @@
     "Open-source Graphiti engine",
     "Rich SDK ecosystem"
   ],
-  "cons": [
-    "Enterprise pricing",
-    "Complex setup for self-hosted"
-  ]
+  "cons": ["Enterprise pricing", "Complex setup for self-hosted"]
 }

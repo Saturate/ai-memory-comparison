@@ -28,5 +28,11 @@
   "auditTrail": "no",
   "maturity": "stable",
   "pros": ["Zero setup", "Works automatically", "Cloud-synced"],
-  "cons": ["No API access", "UI-only management", "No scoping", "Not for developer tooling", "Opaque synthesis process"]
+  "cons": [
+    "No API access",
+    "UI-only management",
+    "No scoping",
+    "Not for developer tooling",
+    "Opaque synthesis process"
+  ]
 }

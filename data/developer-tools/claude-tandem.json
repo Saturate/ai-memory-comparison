@@ -29,6 +29,10 @@
   "auditTrail": "no",
   "setupComplexity": "low",
   "maturity": "alpha",
-  "pros": ["Priority-based retention", "Simple file-based approach", "Ephemeral tier auto-cleanup"],
+  "pros": [
+    "Priority-based retention",
+    "Simple file-based approach",
+    "Ephemeral tier auto-cleanup"
+  ],
   "cons": ["No search", "Local-only", "No MCP support"]
 }

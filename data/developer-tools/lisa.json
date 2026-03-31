@@ -30,6 +30,10 @@
   "auditTrailDetail": "Temporal tracking on entities but not full event sourcing",
   "setupComplexity": "high",
   "maturity": "alpha",
-  "pros": ["Full graph database with Neo4j", "Entity resolution", "Temporal tracking"],
+  "pros": [
+    "Full graph database with Neo4j",
+    "Entity resolution",
+    "Temporal tracking"
+  ],
   "cons": ["Requires Neo4j infrastructure", "No MCP support", "No web UI"]
 }

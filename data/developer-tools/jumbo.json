@@ -17,7 +17,16 @@
   "storage": ["JSONL", "SQLite"],
   "storageDetail": "Dual-store: filesystem JSONL event files per aggregate UUID (source of truth) + SQLite projection (rebuildable). All data in local .jumbo/ directory",
   "mcpSupport": "no",
-  "toolSupport": ["Claude Code", "GitHub Copilot", "Google Gemini", "Cursor", "Mistral Vibe CLI", "Amp", "Warp", "VS Code"],
+  "toolSupport": [
+    "Claude Code",
+    "GitHub Copilot",
+    "Google Gemini",
+    "Cursor",
+    "Mistral Vibe CLI",
+    "Amp",
+    "Warp",
+    "VS Code"
+  ],
   "toolSupportDetail": "Auto-configures hooks and instruction files per agent (CLAUDE.md, GEMINI.md, copilot-instructions.md, etc.)",
   "scopes": ["session", "project"],
   "scopesDetail": "Session scope for active work context with goals; project scope via .jumbo/ directory. No global/cross-project scope",

@@ -33,6 +33,10 @@
   "auditTrailDetail": "Temporal graph tracks when memories were created/modified; importance decay provides lifecycle",
   "setupComplexity": "low",
   "maturity": "alpha",
-  "pros": ["Rich graph model with 4 graph types", "Conflict detection", "Importance decay"],
+  "pros": [
+    "Rich graph model with 4 graph types",
+    "Conflict detection",
+    "Importance decay"
+  ],
   "cons": ["No MCP support", "Local-only", "CLI protocol only"]
 }
