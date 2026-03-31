@@ -67,7 +67,7 @@ If unclear, ask the user.
 ### Category: developer-tools
 
 - **Schema:** [developer-tool.schema.json](${RAW}/schemas/developer-tool.schema.json)
-- **Required fields:** \`slug\`, \`name\`, \`description\`, \`url\`, \`language\`, \`approach\`, \`category\`, \`search\`, \`storage\`, \`mcpSupport\`, \`toolSupport\`, \`scopes\`, \`duplicateDetection\`, \`retention\`, \`multiUser\`, \`crossMachine\`, \`webUi\`, \`tokenBudgeting\`
+- **Required fields:** \`slug\`, \`name\`, \`description\`, \`url\`, \`language\`, \`approach\`, \`category\`, \`search\`, \`storage\`, \`mcpSupport\`, \`toolSupport\`, \`scopes\`, \`duplicateDetection\`, \`retention\`, \`multiUser\`, \`crossMachine\`, \`webUi\`, \`tokenBudgeting\`, \`contextInjection\`, \`networkRequired\`, \`auditTrail\`
 
 ### Category: user-memory
 
@@ -80,6 +80,7 @@ If unclear, ask the user.
 |---|---|
 | \`slug\` | Lowercase kebab-case of the tool name. This becomes the filename: \`{slug}.json\` |
 | \`name\` | Display name exactly as the project uses it |
+| \`tagline\` | Short phrase (under 10 words) clarifying what the tool is (e.g., "AI memory server with search and session tracking") |
 | \`description\` | One sentence. What it does + what makes it different |
 | \`url\` | Project homepage or repo URL |
 | \`repo\` | GitHub/GitLab repo URL (optional if same as \`url\`) |
@@ -109,6 +110,9 @@ If unclear, ask the user.
 | \`crossMachine\` | \`"yes"\` / \`"no"\` / \`"partial"\` — can memories sync across machines? |
 | \`webUi\` | \`"yes"\` / \`"no"\` / \`"partial"\` — admin/management UI? |
 | \`tokenBudgeting\` | How it limits context: \`["max_tokens"]\`, \`["top-k"]\`, \`["none"]\` |
+| \`contextInjection\` | \`"auto"\` / \`"manual"\` / \`"file-based"\` — how context reaches the agent. Auto = hooks/built-in, manual = agent calls MCP tools, file-based = agent reads instruction files |
+| \`networkRequired\` | \`"yes"\` / \`"no"\` / \`"partial"\` — can it work fully offline? |
+| \`auditTrail\` | \`"yes"\` / \`"no"\` / \`"partial"\` — can you see how memory evolved over time? (event sourcing, version chains, etc.) |
 | \`setupComplexity\` | \`"low"\` / \`"medium"\` / \`"high"\` |
 | \`maturity\` | \`"experimental"\` / \`"alpha"\` / \`"beta"\` / \`"stable"\` / \`"mature"\` |
 
