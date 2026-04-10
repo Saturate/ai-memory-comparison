@@ -3,11 +3,13 @@ import { getDevTools } from "@/lib/data";
 import { fetchAllEnrichments } from "@/lib/enrichments";
 import { DevToolsTableClient } from "./client";
 
-export const metadata = {
-  title: "Developer Memory Tools — AI Memory Comparison",
-  description:
-    "Compare 16 persistent memory systems for AI coding assistants. MCP support, search, storage, dedup, cross-machine sync, and more.",
-};
+export function generateMetadata() {
+  const count = getDevTools().length;
+  return {
+    title: "Developer Memory Tools — AI Memory Comparison",
+    description: `Compare ${count} persistent memory systems for AI coding assistants. MCP support, search, storage, dedup, cross-machine sync, and more.`,
+  };
+}
 
 export default async function DevToolsPage() {
   await connection();
