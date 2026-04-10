@@ -85,33 +85,21 @@
     },
     "temporalAwareness": {
       "type": "string",
-      "enum": [
-        "yes",
-        "no",
-        "partial"
-      ]
+      "enum": ["yes", "no", "partial"]
     },
     "temporalDetail": {
       "type": "string"
     },
     "selfImproving": {
       "type": "string",
-      "enum": [
-        "yes",
-        "no",
-        "partial"
-      ]
+      "enum": ["yes", "no", "partial"]
     },
     "selfImprovingDetail": {
       "type": "string"
     },
     "multiTenant": {
       "type": "string",
-      "enum": [
-        "yes",
-        "no",
-        "partial"
-      ]
+      "enum": ["yes", "no", "partial"]
     },
     "multiTenantDetail": {
       "type": "string"

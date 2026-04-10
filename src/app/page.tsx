@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { CopyPrompt } from "@/components/copy-prompt";
+import { getDevTools, getUserMemory } from "@/lib/data";
 
 function StatBlock({ value, label }: { value: string; label: string }) {
   return (
@@ -15,6 +16,8 @@ function StatBlock({ value, label }: { value: string; label: string }) {
 }
 
 export default function HomePage() {
+  const devToolCount = getDevTools().length;
+  const platformCount = getUserMemory().length;
   return (
     <div>
       {/* Hero */}
@@ -38,9 +41,9 @@ export default function HomePage() {
           </div>
 
           <div className="flex items-center gap-8 mt-10 pt-8 border-t border-border/60 max-w-md">
-            <StatBlock value="16" label="Dev tools" />
+            <StatBlock value={String(devToolCount)} label="Dev tools" />
             <div className="h-8 w-px bg-border" />
-            <StatBlock value="4" label="Platforms" />
+            <StatBlock value={String(platformCount)} label="Platforms" />
             <div className="h-8 w-px bg-border" />
             <StatBlock value="20+" label="Dimensions" />
           </div>
@@ -59,7 +62,7 @@ export default function HomePage() {
                 {"</>"}
               </div>
               <span className="font-mono text-[11px] text-muted-foreground border border-border rounded-full px-2 py-0.5">
-                16 systems
+                {devToolCount} systems
               </span>
             </div>
             <h2 className="text-xl font-semibold mb-2 group-hover:text-primary transition-colors">
@@ -113,7 +116,7 @@ export default function HomePage() {
                 {"{ }"}
               </div>
               <span className="font-mono text-[11px] text-muted-foreground border border-border rounded-full px-2 py-0.5">
-                4 platforms
+                {platformCount} platforms
               </span>
             </div>
             <h2 className="text-xl font-semibold mb-2 group-hover:text-primary transition-colors">
