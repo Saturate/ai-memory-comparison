@@ -1,6 +1,6 @@
 import type { DevTool, UserMemory } from "./types";
 
-const SITE_URL = "https://ai-memory-comparison.vercel.app";
+const SITE_URL = "https://llm-memory.org";
 
 function fmt(value: string | string[]): string {
   return Array.isArray(value) ? value.join(", ") : value;

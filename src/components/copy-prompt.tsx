@@ -3,7 +3,7 @@
 import { useState } from "react";
 
 const PROMPT_TEXT = `Please follow this guide to evaluate a tool for the AI Memory Comparison:
-https://ai-memory-comparison.vercel.app/contribute.md`;
+https://llm-memory.org/contribute.md`;
 
 export function CopyPrompt() {
   const [copied, setCopied] = useState(false);
