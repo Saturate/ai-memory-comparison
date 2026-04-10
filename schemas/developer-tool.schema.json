@@ -70,11 +70,7 @@
     },
     "mcpSupport": {
       "type": "string",
-      "enum": [
-        "yes",
-        "no",
-        "partial"
-      ]
+      "enum": ["yes", "no", "partial"]
     },
     "mcpDetail": {
       "type": "string"
@@ -117,33 +113,21 @@
     },
     "multiUser": {
       "type": "string",
-      "enum": [
-        "yes",
-        "no",
-        "partial"
-      ]
+      "enum": ["yes", "no", "partial"]
     },
     "multiUserDetail": {
       "type": "string"
     },
     "crossMachine": {
       "type": "string",
-      "enum": [
-        "yes",
-        "no",
-        "partial"
-      ]
+      "enum": ["yes", "no", "partial"]
     },
     "crossMachineDetail": {
       "type": "string"
     },
     "webUi": {
       "type": "string",
-      "enum": [
-        "yes",
-        "no",
-        "partial"
-      ]
+      "enum": ["yes", "no", "partial"]
     },
     "webUiDetail": {
       "type": "string"
@@ -159,54 +143,32 @@
     },
     "contextInjection": {
       "type": "string",
-      "enum": [
-        "auto",
-        "manual",
-        "file-based"
-      ]
+      "enum": ["auto", "manual", "file-based"]
     },
     "contextInjectionDetail": {
       "type": "string"
     },
     "networkRequired": {
       "type": "string",
-      "enum": [
-        "yes",
-        "no",
-        "partial"
-      ]
+      "enum": ["yes", "no", "partial"]
     },
     "networkDetail": {
       "type": "string"
     },
     "auditTrail": {
       "type": "string",
-      "enum": [
-        "yes",
-        "no",
-        "partial"
-      ]
+      "enum": ["yes", "no", "partial"]
     },
     "auditTrailDetail": {
       "type": "string"
     },
     "setupComplexity": {
       "type": "string",
-      "enum": [
-        "low",
-        "medium",
-        "high"
-      ]
+      "enum": ["low", "medium", "high"]
     },
     "maturity": {
       "type": "string",
-      "enum": [
-        "experimental",
-        "alpha",
-        "beta",
-        "stable",
-        "mature"
-      ]
+      "enum": ["experimental", "alpha", "beta", "stable", "mature"]
     },
     "pros": {
       "type": "array",
