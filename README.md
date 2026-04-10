@@ -2,8 +2,8 @@
 
 Interactive comparison of persistent memory systems for AI tools. Two categories, two different sets of concerns:
 
-- **[Developer Tools](https://ai-memory-comparison.vercel.app/developer-tools)** — Memory for coding assistants (Claude Code, Cursor, etc). MCP support, search approaches, storage backends, dedup, cross-machine sync, token budgets.
-- **[User Memory Platforms](https://ai-memory-comparison.vercel.app/user-memory)** — Memory for agents and chatbots (Mem0, Zep, Letta, Cognee). Pricing, SDKs, multi-tenancy, temporal graphs.
+- **[Developer Tools](https://llm-memory.org/developer-tools)** — Memory for coding assistants (Claude Code, Cursor, etc). MCP support, search approaches, storage backends, dedup, cross-machine sync, token budgets.
+- **[User Memory Platforms](https://llm-memory.org/user-memory)** — Memory for agents and chatbots (Mem0, Zep, Letta, Cognee). Pricing, SDKs, multi-tenancy, temporal graphs.
 
 ## How it works
 

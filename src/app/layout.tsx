@@ -4,10 +4,12 @@ import { Nav } from "@/components/nav";
 import "./globals.css";
 
 export const metadata: Metadata = {
+  metadataBase: new URL("https://llm-memory.org"),
   title: "AI Memory Comparison",
   description:
     "Compare AI memory systems for developer tools and user-facing agents. Interactive tables with filtering, sorting, and side-by-side comparison.",
   alternates: {
+    canonical: "/",
     types: {
       "text/markdown": "/llm.txt",
     },
