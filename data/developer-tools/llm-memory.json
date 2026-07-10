@@ -18,7 +18,13 @@
   "storageDetail": "PostgreSQL 17 with pgvector extension. Notes, vectors, agent state, mail, chat, discussions, virtual-agent call logs, and config all in one database.",
   "mcpSupport": "yes",
   "mcpDetail": "Native MCP server with Streamable HTTP transport. 40 tools covering memory, mail, chat, discussions, and agent status. HMAC OAuth authentication.",
-  "toolSupport": ["Claude Code", "Claude Desktop", "Cursor", "Windsurf", "Any MCP client"],
+  "toolSupport": [
+    "Claude Code",
+    "Claude Desktop",
+    "Cursor",
+    "Windsurf",
+    "Any MCP client"
+  ],
   "toolSupportDetail": "Hosted service at llm-memory.net or self-hosted via Ansible.",
   "scopes": ["project", "global", "realm"],
   "scopesDetail": "Namespace-based isolation per agent. Cross-namespace read/write via explicit permissions, shared namespaces for cross-agent knowledge, and realm-level isolation that walls off groups of agents from each other entirely (useful for keeping client work separate or sandboxing experimental agents).",
