@@ -1,0 +1,83 @@
+{
+  "$schema": "../../schemas/developer-tool.schema.json",
+  "slug": "screenpipe",
+  "name": "Screenpipe",
+  "tagline": "Screen and audio history for AI assistants",
+  "description": "Captures screen text and audio into a local history that coding assistants can search through an authenticated MCP server.",
+  "url": "https://screenpipe.com",
+  "repo": "https://github.com/screenpipe/screenpipe",
+  "purl": "pkg:npm/screenpipe-mcp",
+  "license": "LicenseRef-Screenpipe-Commercial",
+  "language": [
+    "Rust",
+    "TypeScript"
+  ],
+  "approach": [
+    "relational",
+    "file-based"
+  ],
+  "approachDetail": "Timestamped screen text, transcripts and memories in local SQLite, with recorded media stored as files; this entry evaluates the local MCP retrieval path.",
+  "category": "developer-tools",
+  "search": [
+    "keyword"
+  ],
+  "searchDetail": "FTS5 keyword search plus structured filters for time, app, window, speaker and tags; no semantic-search claim for the MCP path evaluated here.",
+  "storage": [
+    "SQLite",
+    "local files"
+  ],
+  "storageDetail": "Local history by default; optional Data Sync and team sharing add remote copies.",
+  "mcpSupport": "yes",
+  "mcpDetail": "Official screenpipe-mcp package; desktop Settings > Connections configures the bundled runtime and SCREENPIPE_LOCAL_API_KEY. A running Screenpipe instance is required.",
+  "toolSupport": [
+    "Claude Desktop",
+    "Claude Code",
+    "Cursor",
+    "Any MCP client"
+  ],
+  "toolSupportDetail": "Connect a compatible MCP client to the local stdio server; the HTTP transport exposes a smaller tool surface.",
+  "scopes": [
+    "global",
+    "tags"
+  ],
+  "scopesDetail": "Local user history with time/app filters and namespaced person/project/topic tags; tags are retrieval filters, not isolation boundaries.",
+  "duplicateDetection": [
+    "exact"
+  ],
+  "duplicateDetail": "The audio database enforces uniqueness for identical transcription text within the same audio chunk. This is capture-level deduplication, not semantic merging of arbitrary memories.",
+  "retention": [
+    "manual",
+    "age-based"
+  ],
+  "retentionDetail": "Manual range deletion and configurable age-based cleanup, with media-only, lean and all-data modes. Plan limits and external copies must be considered separately.",
+  "multiUser": "partial",
+  "multiUserDetail": "The default server is personal/local. Optional enterprise team tools query enrolled devices with separate team authentication.",
+  "crossMachine": "yes",
+  "crossMachineDetail": "Optional Data Sync provides synced-devices and search-synced-content for the signed-in user; requires configuration and network access.",
+  "webUi": "partial",
+  "webUiDetail": "Desktop Tauri app provides timeline, search and settings; not a standalone hosted memory-management web app.",
+  "tokenBudgeting": [
+    "result limit",
+    "character truncation"
+  ],
+  "tokenBudgetingDetail": "search-content limits result count and truncates per-result text (default 1000 characters); this is not a tokenizer-based max_tokens guarantee.",
+  "contextInjection": "manual",
+  "contextInjectionDetail": "The external assistant calls MCP tools to retrieve history or create/update persistent tagged memories.",
+  "networkRequired": "partial",
+  "networkDetail": "Local capture/search can use local models. Cloud transcription, cloud AI, connected apps and sync send selected data off-device when used; telemetry has separate controls.",
+  "auditTrail": "partial",
+  "auditTrailDetail": "Timestamped captures and optional source_context on memories support source inspection; no claim of immutable event sourcing or a complete memory-version chain.",
+  "setupComplexity": "medium",
+  "pros": [
+    "Retrieves screen and audio context across applications, including work outside the coding assistant",
+    "Timestamp, app, speaker and tag filters help narrow retrieved evidence",
+    "Official MCP integration with local API authentication",
+    "Local history storage and configurable retention"
+  ],
+  "cons": [
+    "Recording permissions and a running local app are required; storage use depends on capture and retention settings",
+    "Cloud assistant calls and optional sync can transmit retrieved context outside the device",
+    "Source is commercially licensed, not OSI open source; official desktop builds have separate terms and plan limits"
+  ],
+  "notes": "Documentation and source review at screenpipe/screenpipe commit c88ffa4b2dcba9f92aa958f8a9caa07fbef11baf on 2026-09-18, not a hands-on benchmark. LicenseRef-Screenpipe-Commercial denotes the custom LICENSE.md, not a standard SPDX license. Source use is free for personal/non-commercial, nonprofit, education and research; for-profit evaluation is limited to seven days. Official builds are governed separately."
+}
